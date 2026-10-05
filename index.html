@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>HACKITON'26 | Official Invitation & 24H National Level Hackathon</title>
+  <meta name="description" content="KPR Institute of Engineering and Technology & IEEE (ITS) present HACKITON'26 - 24 Hours National Level Hackathon. Official Invitation from the Office of the Principal.">
+  <link rel="icon" type="image/x-icon" href="hackitonlogo.ico">
+
+  <!-- Google Fonts: Luxury Serif & Futuristic Cyberpunk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,800&family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700;800&family=Share+Tech+Mono&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="stage-invitation">
+
+  <!-- ========================================== -->
+  <!-- AUDIO SYNTHESIZER & CONTROLS               -->
+  <!-- ========================================== -->
+  <aside class="quick-toolbar" aria-label="Controls">
+    <button id="audio-toggle-btn" class="toolbar-btn" title="Toggle Sound FX" aria-label="Toggle Sound FX">
+      <span class="btn-icon">🔊</span>
+      <span class="btn-text">AUDIO ON</span>
+    </button>
+    <button id="fullscreen-btn" class="toolbar-btn" title="Toggle 4K Fullscreen" aria-label="Toggle Fullscreen">
+      <span class="btn-icon">⛶</span>
+      <span class="btn-text">4K EXPAND</span>
+    </button>
+    <button id="replay-btn" class="toolbar-btn" title="Replay Invitation & Glitch" aria-label="Replay Experience">
+      <span class="btn-icon">↺</span>
+      <span class="btn-text">REPLAY</span>
+    </button>
+  </aside>
+
+  <!-- ======================================================== -->
+  <!-- INITIAL BLACK SCREEN WITH SLOW FADE OUT ANIMATION        -->
+  <!-- ======================================================== -->
+  <div id="initial-black-curtain" class="initial-black-curtain" aria-hidden="true"></div>
+
+  <!-- ======================================================== -->
+  <!-- SCREEN 1: EXACT PHOTO 1 LUXURY GOLDEN STAGE INVITATION   -->
+  <!-- ======================================================== -->
+  <section id="screen-invitation" class="screen-view active" aria-label="Executive Principal Invitation">
+    <div class="luxury-gold-stage" id="luxury-gold-stage">
+      
+      <!-- Ambient Golden Dust Canvas -->
+      <canvas id="ambient-dust-canvas" class="dust-particles-layer"></canvas>
+
+      <!-- Horizon Radiant Flare & Light Streaks -->
+      <div class="stage-horizon-flare">
+        <div class="flare-core"></div>
+        <div class="flare-horizontal-streak"></div>
+        <div class="flare-rays"></div>
+      </div>
+
+      <!-- Vertical Golden Light Columns -->
+      <div class="stage-vertical-beams" aria-hidden="true">
+        <div class="beam beam-far-left"></div>
+        <div class="beam beam-mid-left"></div>
+        <div class="beam beam-center-glow"></div>
+        <div class="beam beam-mid-right"></div>
+        <div class="beam beam-far-right"></div>
+      </div>
+
+      <!-- Circular Arch & Dotted Concentric Halo -->
+      <div class="stage-circular-arch" aria-hidden="true">
+        <svg class="arch-svg" viewBox="0 0 1200 1200" fill="none">
+          <defs>
+            <linearGradient id="goldArchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFEBB0" stop-opacity="0.9"/>
+              <stop offset="35%" stop-color="#D4AF37" stop-opacity="0.7"/>
+              <stop offset="70%" stop-color="#AA771C" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#553905" stop-opacity="0.1"/>
+            </linearGradient>
+            <linearGradient id="traceGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.8"/>
+              <stop offset="60%" stop-color="#FCEAA6" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.1"/>
+            </linearGradient>
+          </defs>
+          <circle cx="600" cy="600" r="540" stroke="url(#goldArchGrad)" stroke-width="2.2" opacity="0.75"/>
+          <circle cx="600" cy="600" r="512" stroke="url(#goldArchGrad)" stroke-width="1.2" stroke-dasharray="8 16" opacity="0.6"/>
+          <circle cx="600" cy="600" r="562" stroke="url(#goldArchGrad)" stroke-width="1" stroke-dasharray="3 24" opacity="0.35"/>
+        </svg>
+      </div>
+
+      <!-- High-tech Vertical Circuit Traces (Left & Right Flanks) -->
+      <div class="stage-circuit-traces left" aria-hidden="true">
+        <svg viewBox="0 0 160 800" fill="none" class="trace-svg">
+          <path d="M140,800 L140,440 L85,385 L85,160 L45,120 L45,0" stroke="url(#traceGrad)" stroke-width="2"/>
+          <circle cx="85" cy="385" r="3.5" fill="#FFE17D"/>
+          <circle cx="45" cy="120" r="3.5" fill="#FFE17D"/>
+          <circle cx="140" cy="560" r="3" fill="#FFE17D"/>
+        </svg>
+      </div>
+      <div class="stage-circuit-traces right" aria-hidden="true">
+        <svg viewBox="0 0 160 800" fill="none" class="trace-svg">
+          <path d="M20,800 L20,440 L75,385 L75,160 L115,120 L115,0" stroke="url(#traceGrad)" stroke-width="2"/>
+          <circle cx="75" cy="385" r="3.5" fill="#FFE17D"/>
+          <circle cx="115" cy="120" r="3.5" fill="#FFE17D"/>
+          <circle cx="20" cy="560" r="3" fill="#FFE17D"/>
+        </svg>
+      </div>
+
+      <!-- Reflective Stage Floor with Concentric Gold Rings -->
+      <div class="stage-floor-wrapper" aria-hidden="true">
+        <div class="floor-mirror-surface">
+          <div class="floor-rings-perspective">
+            <div class="floor-ring r1"></div>
+            <div class="floor-ring r2"></div>
+            <div class="floor-ring r3"></div>
+            <div class="floor-ring r4"></div>
+          </div>
+          <div class="floor-radial-glow"></div>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- MAIN PRESENTATION CONTENT (EXACT PHOTO 1 MATCH)          -->
+      <!-- ======================================================== -->
+      <div class="stage-center-content" id="stage-center-content">
+        
+        <!-- 1. 3D GOLD METALLIC KPR EMBLEM -->
+        <div class="gold-emblem-wrapper">
+          <div class="emblem-ambient-glow"></div>
+          <svg class="gold-kpr-emblem-svg" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="emblemGold3D" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFFDF0"/>
+                <stop offset="20%" stop-color="#FFEBB0"/>
+                <stop offset="45%" stop-color="#E5B338"/>
+                <stop offset="70%" stop-color="#A87818"/>
+                <stop offset="90%" stop-color="#603F05"/>
+                <stop offset="100%" stop-color="#2D1C00"/>
+              </linearGradient>
+              <linearGradient id="emblemFacetLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#FFF9DE"/>
+                <stop offset="50%" stop-color="#E5B338"/>
+                <stop offset="100%" stop-color="#80540C"/>
+              </linearGradient>
+              <linearGradient id="emblemFacetRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFFDF2"/>
+                <stop offset="40%" stop-color="#FCE18A"/>
+                <stop offset="80%" stop-color="#B28220"/>
+                <stop offset="100%" stop-color="#553704"/>
+              </linearGradient>
+              <filter id="goldEmblemGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <!-- Outer Petals / Wings (3D Sculpted Bevels) -->
+            <path d="M55 130 C20 102, 20 62, 62 62 C86 62, 102 82, 102 110 C102 80, 120 50, 160 50 C194 50, 208 80, 186 112 C158 150, 114 162, 100 162 C94 144, 98 122, 88 108 C74 94, 60 108, 55 130 Z" 
+                  fill="url(#emblemGold3D)" filter="url(#goldEmblemGlow)"/>
+            <path d="M100 162 C100 126, 110 82, 134 32 C144 56, 152 74, 152 102 C134 124, 114 146, 100 162 Z" 
+                  fill="url(#emblemFacetRight)"/>
+            <!-- Inner Facet Highlights -->
+            <path d="M60 68 C80 68, 96 86, 98 108" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+            <path d="M158 56 C184 56, 196 78, 180 106" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+            <path d="M132 38 C140 60, 146 78, 146 100" stroke="#FFF7D6" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+        </div>
+
+        <!-- 2. INSTITUTION AND PRINCIPAL TITLES -->
+        <h2 class="stage-institution-title">KPR INSTITUTE OF ENGINEERING AND TECHNOLOGY</h2>
+        <div class="stage-principal-title">
+          <span class="title-dash">―</span>
+          <span class="title-text">THE PRINCIPAL</span>
+          <span class="title-dash">―</span>
+        </div>
+
+        <!-- 3. ORNATE SPECIAL INVITATION BRACKET BADGE -->
+        <div class="special-invitation-badge-wrap">
+          <div class="ornate-bracket-badge">
+            <span class="badge-star left">✦</span>
+            <span class="badge-label">SPECIAL INVITATION</span>
+            <span class="badge-star right">✦</span>
+          </div>
+        </div>
+
+        <!-- 4. YOU ARE INVITED -->
+        <h3 class="stage-you-are-invited">YOU ARE INVITED</h3>
+
+        <!-- 5. 3D GOLD DISPLAY TITLE: HACKITON'26 -->
+        <div class="stage-title-stage">
+          <h1 class="stage-hackiton-3d" data-text="HACKITON'26">HACKITON'26</h1>
+          <div class="title-flare-star left"></div>
+          <div class="title-flare-star right"></div>
+        </div>
+
+        <!-- 6. 24-HOUR NATIONAL LEVEL HACKATHON WITH DIAMOND DIVIDERS -->
+        <div class="stage-hackathon-subline">
+          <div class="diamond-divider-line">
+            <span class="line-part"></span>
+            <span class="diamond-dot">◆</span>
+            <span class="line-part"></span>
+          </div>
+          <p class="hackathon-subtext">24-HOUR NATIONAL LEVEL HACKATHON</p>
+          <div class="diamond-divider-line">
+            <span class="line-part"></span>
+            <span class="diamond-dot">◆</span>
+            <span class="line-part"></span>
+          </div>
+        </div>
+
+        <!-- 7. THE FOUR GOLDEN DOMAIN PILLARS (AI, CYBERSECURITY, SMART INDUSTRY, GREEN TECHNOLOGY) -->
+        <div class="four-domain-pillars-row" aria-label="Hackathon Core Domains">
+          
+          <!-- Domain 1: AI -->
+          <div class="domain-pillar-card" data-domain="ai">
+            <div class="pillar-icon-box">
+              <svg class="pillar-svg" viewBox="0 0 60 60" fill="none">
+                <!-- Neural Network Brain Icon -->
+                <circle cx="30" cy="30" r="24" stroke="url(#goldArchGrad)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
+                <path d="M22 22 C18 22, 16 26, 16 30 C16 34, 18 38, 22 38 C22 41, 25 43, 28 43 C30 43, 30 41, 30 39" stroke="#FFE494" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M38 22 C42 22, 44 26, 44 30 C44 34, 42 38, 38 38 C38 41, 35 43, 32 43 C30 43, 30 41, 30 39" stroke="#FFE494" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M22 22 C22 18, 26 16, 30 16 C34 16, 38 18, 38 22" stroke="#FFE494" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="30" y1="16" x2="30" y2="43" stroke="#FFE494" stroke-width="1.8" stroke-dasharray="2 3"/>
+                <!-- Synapse Nodes -->
+                <circle cx="22" cy="30" r="2.5" fill="#FFF2B8"/>
+                <circle cx="38" cy="30" r="2.5" fill="#FFF2B8"/>
+                <circle cx="30" cy="24" r="2.5" fill="#FFF2B8"/>
+                <circle cx="30" cy="36" r="2.5" fill="#FFF2B8"/>
+              </svg>
+              <div class="pillar-horizon-arc"></div>
+            </div>
+            <span class="pillar-label">AI</span>
+          </div>
+
+          <div class="pillar-vertical-sep"></div>
+
+          <!-- Domain 2: CYBERSECURITY -->
+          <div class="domain-pillar-card" data-domain="cyber">
+            <div class="pillar-icon-box">
+              <svg class="pillar-svg" viewBox="0 0 60 60" fill="none">
+                <!-- Shield Checkmark Icon -->
+                <circle cx="30" cy="30" r="24" stroke="url(#goldArchGrad)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
+                <path d="M30 16 L43 21 C43 33, 37 41, 30 45 C23 41, 17 33, 17 21 L30 16 Z" stroke="#FFE494" stroke-width="2.2" stroke-linejoin="round"/>
+                <path d="M25 30 L29 34 L36 26" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="pillar-horizon-arc"></div>
+            </div>
+            <span class="pillar-label">CYBERSECURITY</span>
+          </div>
+
+          <div class="pillar-vertical-sep"></div>
+
+          <!-- Domain 3: SMART INDUSTRY -->
+          <div class="domain-pillar-card" data-domain="industry">
+            <div class="pillar-icon-box">
+              <svg class="pillar-svg" viewBox="0 0 60 60" fill="none">
+                <!-- Industrial Gear Cog Icon -->
+                <circle cx="30" cy="30" r="24" stroke="url(#goldArchGrad)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
+                <circle cx="30" cy="30" r="8" stroke="#FFE494" stroke-width="2.2"/>
+                <path d="M28 15 L32 15 L33 19 L36 20 L39 17 L42 20 L39 23 L40 26 L44 27 L44 31 L40 32 L39 35 L42 38 L39 41 L36 38 L33 39 L32 43 L28 43 L27 39 L24 38 L21 41 L18 38 L21 35 L20 32 L16 31 L16 27 L20 26 L21 23 L18 20 L21 17 L24 20 L27 19 Z" stroke="#FFE494" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="30" cy="30" r="3" fill="#FFF2B8"/>
+              </svg>
+              <div class="pillar-horizon-arc"></div>
+            </div>
+            <span class="pillar-label">SMART INDUSTRY</span>
+          </div>
+
+          <div class="pillar-vertical-sep"></div>
+
+          <!-- Domain 4: GREEN TECHNOLOGY -->
+          <div class="domain-pillar-card" data-domain="green">
+            <div class="pillar-icon-box">
+              <svg class="pillar-svg" viewBox="0 0 60 60" fill="none">
+                <!-- Eco Leaf Icon -->
+                <circle cx="30" cy="30" r="24" stroke="url(#goldArchGrad)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
+                <path d="M43 17 C30 18, 19 28, 19 40 C31 40, 41 29, 43 17 Z" stroke="#FFE494" stroke-width="2.2" stroke-linejoin="round"/>
+                <path d="M19 40 C25 35, 33 27, 43 17" stroke="#FFE494" stroke-width="2" stroke-linecap="round"/>
+                <path d="M28 32 C31 34, 34 35, 37 35" stroke="#FFE494" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <div class="pillar-horizon-arc"></div>
+            </div>
+            <span class="pillar-label">GREEN TECHNOLOGY</span>
+          </div>
+
+        </div>
+
+        <!-- 8. THE MAJESTIC GLOWING "ACCEPT INVITATION" BUTTON -->
+        <div class="stage-action-area">
+          <button id="accept-invite-btn" class="btn-exact-photo-accept" aria-label="Accept Invitation">
+            <div class="btn-chamfered-border">
+              <div class="laser-travel-line"></div>
+            </div>
+            <div class="btn-chamfered-core">
+              <span class="btn-diamond-star">✦</span>
+              <span class="btn-text-content">ACCEPT INVITATION</span>
+              <span class="btn-nav-arrow">➔</span>
+            </div>
+            <div class="btn-floor-cast-reflection"></div>
+          </button>
+        </div>
+
+      </div><!-- /stage-center-content -->
+
+    </div><!-- /luxury-gold-stage -->
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- CYBERPUNK GLITCH TRANSITION OVERLAY                      -->
+  <!-- ======================================================== -->
+  <div id="cyber-glitch-stage" class="glitch-overlay" aria-hidden="true">
+    <div class="glitch-canvas-wrapper">
+      <canvas id="glitch-canvas"></canvas>
+    </div>
+    
+    <!-- Multi-slice Chromatic Aberration Layers -->
+    <div class="glitch-slice slice-1"></div>
+    <div class="glitch-slice slice-2"></div>
+    <div class="glitch-slice slice-3"></div>
+    <div class="glitch-crt-scanlines"></div>
+    <div class="glitch-noise"></div>
+
+    <!-- HUD Decryption Terminal -->
+    <div class="glitch-terminal-hud">
+      <div class="hud-topbar">
+        <span class="hud-tag">CYBER_SYS // OVERRIDE</span>
+        <span class="hud-ip">STREAM: 3840×2160 UHD // 60FPS</span>
+      </div>
+      <div class="terminal-feed" id="terminal-feed">
+        <p class="term-line">> INITIATING QUANTUM HANDSHAKE...</p>
+        <p class="term-line">> DECRYPTING ACCESS KEY: [HACKITON_2026_AUTH]</p>
+        <p class="term-line accent">> BYPASSING FIREWALL... 100%</p>
+        <p class="term-line">> BREACHING NEURAL MAINFRAME...</p>
+        <p class="term-line success">> ACCESS GRANTED: WELCOME TO HACKITON'26</p>
+      </div>
+      <div class="terminal-meter">
+        <div class="meter-bar" id="glitch-progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- Giant Flashing Cyberpunk Words -->
+    <div class="glitch-flash-text" id="glitch-flash-text">SYSTEM OVERRIDE</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SCREEN 2: 4K HACKITON'26 CYBERPUNK DISPLAY (3840x2160)   -->
+  <!-- ======================================================== -->
+  <section id="screen-hackathon" class="screen-view" aria-label="HACKITON'26 4K Interactive Arena">
+    <!-- Scalable 4K Canvas Container (Ratio 3840 x 2160, scales seamlessly) -->
+    <div class="canvas-4k-viewport" id="canvas-4k-viewport">
+      
+      <!-- Ambient Cyberpunk Background Layer -->
+      <div class="cyber-bg-atmosphere">
+        <div class="cyber-grid-floor"></div>
+        <div class="cyber-speedlines"></div>
+        <div class="cyber-aurora-glow"></div>
+        <!-- High-tech Vector Cyber Shield Aura -->
+        <div class="cyber-vector-crest-aura">
+          <svg viewBox="0 0 500 500" class="cyber-shield-svg" fill="none">
+            <polygon points="250,30 460,110 420,380 250,470 80,380 40,110" stroke="#00f0ff" stroke-width="2" stroke-dasharray="16 8" opacity="0.25"/>
+            <polygon points="250,60 430,130 390,360 250,440 110,360 70,130" stroke="#ff003c" stroke-width="1.5" opacity="0.18"/>
+            <circle cx="250" cy="250" r="180" stroke="#00f0ff" stroke-width="1" stroke-dasharray="6 4" opacity="0.2"/>
+            <circle cx="250" cy="250" r="120" stroke="#e024c3" stroke-width="1" opacity="0.2"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- POSTER CONTENT RECONSTRUCTED AT 4K ULTRA-CRISP FIDELITY   -->
+      <!-- ======================================================== -->
+      <div class="poster-layout-grid">
+
+        <!-- 1. TOP HEADER STRIP: LOGOS & PRESENTING DEPARTMENT -->
+        <header class="poster-header-section">
+          <div class="institution-brand-bar">
+            <!-- Left: KPR Institute of Engineering and Technology -->
+            <div class="brand-item kpr-brand" id="brand-kpr">
+              <div class="kpr-logo-combo">
+                <svg class="kpr-vector-mark" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Learn Beyond Stylized Petal Emblem -->
+                  <path d="M22 62 C10 50, 10 32, 28 32 C38 32, 44 42, 44 54 C44 40, 52 26, 68 26 C82 26, 88 40, 78 54 C66 70, 48 76, 42 76 C40 68, 42 58, 38 52 C32 46, 26 52, 22 62 Z" fill="#ffffff" opacity="0.95"/>
+                  <path d="M42 76 C42 60, 46 40, 56 16 C60 28, 64 36, 64 48 C56 58, 48 68, 42 76 Z" fill="#2ED573"/>
+                </svg>
+                <div class="kpr-titles">
+                  <div class="kpr-primary-title">KPR Institute of</div>
+                  <div class="kpr-secondary-title">Engineering and Technology</div>
+                  <div class="kpr-accreditation">(Autonomous, NAAC "A")</div>
+                  <div class="kpr-motto">Learn Beyond</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center: IEEE Student Branch -->
+            <div class="brand-item ieee-brand" id="brand-ieee">
+              <img src="ieee-kpriet.png" alt="IEEE KPRIET Student Branch" class="ieee-logo-img">
+            </div>
+
+            <!-- Right: IEEE Information Theory Society SBC -->
+            <div class="brand-item its-brand" id="brand-its">
+              <div class="its-logo-combo">
+                <div class="its-roundel">
+                  <svg viewBox="0 0 100 100" class="its-svg">
+                    <circle cx="50" cy="50" r="46" stroke="#ffffff" stroke-width="3" stroke-dasharray="8 4" fill="none"/>
+                    <text x="50" y="24" text-anchor="middle" fill="#ffffff" font-size="11" font-family="'Rajdhani', sans-serif" font-weight="700" letter-spacing="1">IEEE INFORMATION</text>
+                    <text x="50" y="88" text-anchor="middle" fill="#ffffff" font-size="10" font-family="'Rajdhani', sans-serif" font-weight="700" letter-spacing="1">THEORY SOCIETY</text>
+                    <text x="50" y="58" text-anchor="middle" fill="#ffffff" font-size="34" font-family="'Cinzel', serif" font-weight="900" font-style="italic">it</text>
+                  </svg>
+                </div>
+                <div class="its-text-block">
+                  <span class="its-kpr-tag">KPRIET</span>
+                  <span class="its-sbc-tag">SBC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Presenter Announcement Ribbon -->
+          <div class="presenter-banner">
+            <h2 class="presenter-text">
+              DEPARTMENT OF INFORMATION TECHNOLOGY &amp; IEEE (ITS)
+            </h2>
+            <div class="present-label">PRESENT</div>
+          </div>
+        </header>
+
+        <!-- 2. MAIN HACKATHON TITLE & IDENTITY -->
+        <section class="poster-title-section">
+          <div class="title-stage">
+            <h1 class="main-hack-title" data-text="HACKITON'26">
+              <span class="font-hack">HACK</span><span class="font-it red-cyber-highlight">IT</span><span class="font-on">ON'26</span>
+            </h1>
+            <div class="hack-glow-shadow" aria-hidden="true">HACKITON'26</div>
+          </div>
+          <div class="hack-sub-banner">
+            <span class="sub-flair left">///</span>
+            <h2 class="sub-banner-text">24 HOURS NATIONAL LEVEL HACKATHON</h2>
+            <span class="sub-flair right">///</span>
+          </div>
+        </section>
+
+        <!-- 3. QUICK INTEL BADGES: DATE & SQUAD CAPACITY -->
+        <section class="intel-badges-strip">
+          <!-- Date Badge -->
+          <div class="cyber-badge-node badge-date">
+            <div class="badge-cut-box">
+              <div class="badge-corner tl"></div>
+              <div class="badge-corner br"></div>
+              <div class="badge-tag">DATE</div>
+              <div class="badge-val-red">OCT 08-09</div>
+            </div>
+          </div>
+
+          <!-- Domains Title Badge in Middle -->
+          <div class="domains-main-label">
+            <div class="domains-glow-title">DOMAINS</div>
+          </div>
+
+          <!-- Team Capacity Badge -->
+          <div class="cyber-badge-node badge-capacity">
+            <div class="badge-cut-box">
+              <div class="badge-corner tr"></div>
+              <div class="badge-corner bl"></div>
+              <div class="badge-tag">TEAM CAPACITY</div>
+              <div class="badge-val-white">2-4 <span class="sub-white">PER TEAM</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. SIX HACKATHON DOMAINS (FUTURISTIC HUD BRACKETS) -->
+        <section class="domains-hud-grid" aria-label="Hackathon Track Domains">
+          
+          <!-- Row 1: 4 Domains -->
+          <div class="domains-row row-four">
+            
+            <!-- Domain 1: AI & SMART TECH -->
+            <div class="domain-hud-box" data-domain="ai">
+              <div class="hud-bracket-shape">
+                <div class="hud-tech-decorations">
+                  <div class="quad-slashes">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+                <div class="hud-box-content">
+                  <span class="domain-icon">⚡</span>
+                  <span class="domain-label">AI &amp; SMART TECH</span>
+                </div>
+                <div class="hud-hover-glow"></div>
+              </div>
+            </div>
+
+            <!-- Domain 2: CYBER SAFETY -->
+            <div class="domain-hud-box" data-domain="cyber">
+              <div class="hud-bracket-shape">
+                <div class="hud-tech-decorations">
+                  <div class="quad-slashes">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+                <div class="hud-box-content">
+                  <span class="domain-icon">🛡️</span>
+                  <span class="domain-label">CYBER SAFETY</span>
+                </div>
+                <div class="hud-hover-glow"></div>
+              </div>
+            </div>
+
+            <!-- Domain 3: SMART INDUSTRY -->
+            <div class="domain-hud-box" data-domain="industry">
+              <div class="hud-bracket-shape">
+                <div class="hud-tech-decorations">
+                  <div class="quad-slashes">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+                <div class="hud-box-content">
+                  <span class="domain-icon">🏭</span>
+                  <span class="domain-label">SMART INDUSTRY</span>
+                </div>
+                <div class="hud-hover-glow"></div>
+              </div>
+            </div>
+
+            <!-- Domain 4: OPEN INNOVATION -->
+            <div class="domain-hud-box" data-domain="open">
+              <div class="hud-bracket-shape">
+                <div class="hud-tech-decorations">
+                  <div class="quad-slashes">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+                <div class="hud-box-content">
+                  <span class="domain-icon">💡</span>
+                  <span class="domain-label">OPEN INNOVATION</span>
+                </div>
+                <div class="hud-hover-glow"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Row 2: 2 Domains Flanking the Trophy -->
+          <div class="domains-row row-two">
+            
+            <!-- Domain 5: HEALTH TECH -->
+            <div class="domain-hud-box" data-domain="health">
+              <div class="hud-bracket-shape">
+                <div class="hud-tech-decorations">
+                  <div class="quad-slashes">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+                <div class="hud-box-content">
+                  <span class="domain-icon">🧬</span>
+                  <span class="domain-label">HEALTH TECH</span>
+                </div>
+                <div class="hud-hover-glow"></div>
+              </div>
+            </div>
+
+            <!-- Domain 6: GREEN TECH -->
+            <div class="domain-hud-box" data-domain="green">
+              <div class="hud-bracket-shape">
+                <div class="hud-tech-decorations">
+                  <div class="quad-slashes">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+                <div class="hud-box-content">
+                  <span class="domain-icon">🌱</span>
+                  <span class="domain-label">GREEN TECH</span>
+                </div>
+                <div class="hud-hover-glow"></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 5. CENTERPIECE: GLOWING CYBERPUNK TROPHY & HOLOGRAPHIC LAURELS -->
+        <section class="trophy-centerpiece-section" id="trophy-stage">
+          <div class="trophy-hologram-wrap" id="trophy-interactive-card">
+            <!-- Neon Cyan & Magenta Light Aura -->
+            <div class="trophy-core-glow"></div>
+            
+            <!-- Authentic Glowing Trophy from Poster -->
+            <div class="trophy-asset-container">
+              <img src="trophy_transparent.png" alt="HACKITON'26 Cyber Champions Trophy" class="trophy-image-neon" id="trophy-glow-img">
+              
+              <!-- Floating Cyber Hologram Rings -->
+              <div class="hologram-ring ring-1"></div>
+              <div class="hologram-ring ring-2"></div>
+              <div class="hologram-particles-canvas-wrap">
+                <canvas id="trophy-particles-canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. HIGH-IMPACT PRIZE POOL BANNER -->
+        <section class="prize-pool-section">
+          <div class="prize-banner-frame">
+            <span class="prize-big red-cyber-highlight">BIG</span>
+            <span class="prize-main">PRIZE POOL &amp; INTERNSHIPS</span>
+          </div>
+          <div class="prize-subtitle-tags">
+            <span class="p-tag">✦ CASH AWARDS</span>
+            <span class="p-tag">✦ DIRECT INTERNSHIP OFFERS</span>
+            <span class="p-tag">✦ MERIT CERTIFICATES</span>
+            <span class="p-tag">✦ IEEE RECOGNITION</span>
+          </div>
+        </section>
+
+        <!-- 7. BOTTOM DUAL CONSOLE: COORDINATORS & REGISTRATION / WEBSITE -->
+        <footer class="poster-footer-console">
+          
+          <!-- LEFT CONSOLE: STUDENT & FACULTY COORDINATORS -->
+          <div class="console-box coordinators-box">
+            <div class="console-header-tab">
+              <span class="tab-marker"></span>
+              <span class="tab-title">COMMAND &amp; COORDINATION</span>
+            </div>
+
+            <div class="coord-content-grid">
+              
+              <!-- Student Coordinators -->
+              <div class="coord-group student-coords">
+                <h3 class="coord-category-title cyan-accent">Student Coordinators</h3>
+                <ul class="coord-list">
+                  <li class="coord-item">
+                    <span class="coord-name">Keertana M S</span>
+                    <a href="tel:9944070580" class="coord-contact-btn" title="Call Coordinator" data-phone="9944070580">
+                      <span class="phone-num">9944070580</span>
+                      <span class="contact-icon">📞</span>
+                    </a>
+                  </li>
+                  <li class="coord-item">
+                    <span class="coord-name">Madhumitha S</span>
+                    <a href="tel:9342828394" class="coord-contact-btn" title="Call Coordinator" data-phone="9342828394">
+                      <span class="phone-num">9342828394</span>
+                      <span class="contact-icon">📞</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Faculty Coordinators -->
+              <div class="coord-group faculty-coords">
+                <h3 class="coord-category-title cyan-accent">Faculty Coordinators</h3>
+                <ul class="faculty-list">
+                  <li class="faculty-name">Dr. Malathy S</li>
+                  <li class="faculty-name">Dr. Muthu Lakshmi S</li>
+                  <li class="faculty-name">Dr. Kalaivanan K</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- RIGHT CONSOLE: REGISTRATION FEE, QR CODE & WEBSITE LINK BUTTON -->
+          <div class="console-box registration-box">
+            <div class="console-header-tab">
+              <span class="tab-marker"></span>
+              <span class="tab-title">REGISTRATION &amp; ACCESS PORTAL</span>
+            </div>
+
+            <div class="reg-content-flex">
+              
+              <!-- Pricing & Inclusions Block -->
+              <div class="fee-info-block">
+                <h3 class="fee-category-title cyan-accent">Registration Fee (per person)</h3>
+                
+                <div class="fee-table">
+                  <div class="fee-row">
+                    <span class="fee-tier">IEEE Members:</span>
+                    <span class="fee-price white-bold">Rs. 500/-</span>
+                  </div>
+                  <div class="fee-row">
+                    <span class="fee-tier">Non-IEEE Members:</span>
+                    <span class="fee-price white-bold">Rs. 600/-</span>
+                  </div>
+                </div>
+
+                <div class="includes-strip">
+                  <span class="includes-label cyan-accent">Includes</span>
+                  <span class="includes-val">Food, Refreshments</span>
+                </div>
+
+                <p class="accommodation-note">
+                  For accommodation details, please contact us.
+                </p>
+              </div>
+
+              <!-- QR Code & Website Link Block -->
+              <div class="qr-website-block">
+                
+                <!-- Bouncing Neon Indicator Arrow -->
+                <div class="website-callout-anim">
+                  <span class="callout-text">CHECKOUT OUR WEBSITE!!</span>
+                  <svg class="curved-arrow-svg" viewBox="0 0 80 50" fill="none">
+                    <path d="M10,10 Q50,5 65,35" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="4 3" fill="none"/>
+                    <polygon points="65,35 72,25 57,28" fill="#ffffff"/>
+                  </svg>
+                </div>
+
+                <!-- Interactive QR Code -->
+                <div class="qr-cyber-frame" id="qr-inspect-btn" title="Click to enlarge QR Code" role="button" tabindex="0">
+                  <div class="qr-inner-wrapper">
+                    <img src="qr_tight.png" alt="Official Website QR Code" class="qr-image">
+                    <div class="qr-scan-line"></div>
+                  </div>
+                  <span class="qr-zoom-tip">🔍 CLICK TO ZOOM</span>
+                </div>
+
+                <!-- REQUESTED FEATURE: WEBSITE LINK AS A PROMINENT BUTTON -->
+                <div class="website-button-container">
+                  <a href="https://kpriet.ac.in" target="_blank" rel="noopener noreferrer" class="btn-cyber-website" id="official-website-link">
+                    <span class="btn-cyber-glitch-border"></span>
+                    <span class="btn-cyber-core">
+                      <span class="cyber-btn-icon">🌐</span>
+                      <span class="cyber-btn-text">
+                        <span class="btn-main-label">VISIT OFFICIAL WEBSITE</span>
+                        <span class="btn-sub-label">hackiton26.kpriet.ac.in</span>
+                      </span>
+                      <span class="cyber-arrow">➔</span>
+                    </span>
+                  </a>
+                  <button id="customize-url-btn" class="url-edit-btn" title="Configure Website Destination URL">⚙ EDIT LINK</button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </footer>
+
+      </div><!-- /poster-layout-grid -->
+    </div><!-- /canvas-4k-viewport -->
+  </section>
+
+  <!-- ========================================== -->
+  <!-- MODAL: ENLARGED QR CODE & WEBSITE LINK    -->
+  <!-- ========================================== -->
+  <div id="qr-modal" class="cyber-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">✕</button>
+      <div class="modal-header">
+        <span class="modal-tag">HACKITON'26 REGISTRATION HUB</span>
+        <h3 class="modal-title">Official Portal QR Code</h3>
+      </div>
+      <div class="modal-body">
+        <div class="modal-qr-frame">
+          <img src="qr_tight.png" alt="Enlarged QR Code" class="modal-qr-img">
+        </div>
+        <div class="modal-link-box">
+          <label for="modal-url-input">Direct Portal Link:</label>
+          <div class="link-input-group">
+            <input type="text" id="modal-url-input" value="https://kpriet.ac.in/events/hackiton26" readonly>
+            <button id="copy-link-btn" class="btn-copy">COPY</button>
+          </div>
+          <div id="copy-status" class="copy-status">Link copied to clipboard!</div>
+        </div>
+        <a href="https://kpriet.ac.in" target="_blank" rel="noopener noreferrer" class="btn-modal-open-link" id="modal-open-link">
+          OPEN WEBSITE DIRECTLY ➔
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Domain Detail Interactive Drawer -->
+  <div id="domain-detail-modal" class="cyber-modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card domain-modal-card">
+      <button class="modal-close-btn" id="domain-modal-close">✕</button>
+      <div class="modal-header">
+        <span class="modal-tag" id="domain-badge-category">DOMAIN INTELLIGENCE</span>
+        <h3 class="modal-title" id="domain-modal-title">AI &amp; SMART TECH</h3>
+      </div>
+      <div class="modal-body">
+        <p id="domain-modal-description" class="domain-detail-text">
+          Explore cutting-edge advancements in Machine Learning, Generative AI, Autonomous Edge Computing, and Computer Vision to construct intelligent real-world systems.
+        </p>
+        <div class="domain-specs-grid">
+          <div class="spec-card">
+            <span class="spec-label">CHALLENGE FORMAT</span>
+            <span class="spec-val">24 Hours Non-Stop</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">EVALUATION</span>
+            <span class="spec-val">Industry Panel + IEEE</span>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">TEAM SIZE</span>
+            <span class="spec-val">2 - 4 Innovators</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
