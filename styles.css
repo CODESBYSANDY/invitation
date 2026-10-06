@@ -1896,6 +1896,15 @@ body.stage-hackathon .quick-toolbar {
   animation: trophyFloat 3.8s ease-in-out infinite alternate;
 }
 
+/* Bottom wrapper: packs CTA + Sponsors together with no gap */
+.bottom-pack-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 0;
+}
+
 /* ==========================================================================
    5. HERO CALL TO ACTION: THINK BUILD DISRUPT & ENTER THE ARENA
    ========================================================================== */
@@ -1904,7 +1913,7 @@ body.stage-hackathon .quick-toolbar {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: clamp(2px, 0.6vh, 8px) 0 clamp(4px, 0.9vh, 12px) 0;
+  margin: clamp(2px, 0.6vh, 8px) 0 clamp(2px, 0.4vh, 6px) 0;
   width: 100%;
   position: relative;
   z-index: 5;
@@ -2047,22 +2056,34 @@ body.stage-hackathon .quick-toolbar {
 .poster-sponsors-section {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(6px, 1vh, 16px) clamp(12px, 2vw, 40px);
-  margin-top: auto;
+  padding: clamp(4px, 0.6vh, 10px) clamp(12px, 2vw, 40px);
+  margin-top: 0;
   border-top: 1px solid rgba(0, 240, 255, 0.18);
   background: linear-gradient(180deg, transparent 0%, rgba(3, 7, 18, 0.6) 35%, rgba(2, 5, 14, 0.95) 100%);
   position: relative;
   z-index: 5;
+  gap: clamp(2px, 0.4vh, 6px);
+}
+
+.sponsors-label {
+  font-family: 'Rajdhani', 'Share Tech Mono', sans-serif;
+  font-size: clamp(9px, 0.8vw, 14px);
+  font-weight: 600;
+  letter-spacing: clamp(3px, 0.5vw, 8px);
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .sponsors-track {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: min(94vw, 1260px);
-  gap: clamp(14px, 2.5vw, 44px);
+  width: min(96vw, 1400px);
+  gap: clamp(16px, 3vw, 52px);
 }
 
 .sponsor-item {
@@ -2074,7 +2095,7 @@ body.stage-hackathon .quick-toolbar {
 }
 
 .sponsor-logo {
-  height: clamp(24px, 2.5vw, 42px);
+  height: clamp(32px, 3.5vw, 56px);
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.9));
@@ -2084,6 +2105,14 @@ body.stage-hackathon .quick-toolbar {
 .sponsor-item:hover .sponsor-logo {
   transform: translateY(-2px) scale(1.06);
   filter: drop-shadow(0 0 14px rgba(0, 240, 255, 0.7));
+}
+
+/* Eventopia logo is dark/black - add a subtle white border for visibility */
+.sponsor-eventopia {
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Modal Fee & Coord Additions */
@@ -2584,12 +2613,12 @@ body.stage-hackathon .quick-toolbar {
   }
 
   .sponsors-track {
-    width: min(94vw, 1800px);
+    width: min(96vw, 1800px);
     gap: 64px;
   }
 
   .sponsor-logo {
-    height: 52px;
+    height: 60px;
   }
 }
 
