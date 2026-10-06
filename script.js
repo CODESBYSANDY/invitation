@@ -737,6 +737,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Enter the Arena CTA Button Handler
+  const btnEnterArena = document.getElementById('btn-enter-arena');
+  if (btnEnterArena) {
+    btnEnterArena.addEventListener('click', () => {
+      playCyberChirp(1200, 0.15);
+      openQrModal();
+    });
+  }
+
   // =========================================================================
   // TOOLBAR BUTTONS & MAC-STYLE CONTROLS (AUDIO / FULLSCREEN / REPLAY)
   // =========================================================================
@@ -804,7 +813,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const yellowDot = document.querySelector('.dot-yellow');
   if (yellowDot) {
     yellowDot.addEventListener('click', () => {
-      playCyberChirp(600, 0.08);
+      state.audioEnabled = !state.audioEnabled;
+      if (state.audioEnabled) {
+        getAudioContext();
+        playCyberChirp(1000, 0.1);
+        yellowDot.style.opacity = '1';
+        yellowDot.setAttribute('title', 'Audio: ON');
+      } else {
+        yellowDot.style.opacity = '0.45';
+        yellowDot.setAttribute('title', 'Audio: MUTED');
+      }
     });
   }
 

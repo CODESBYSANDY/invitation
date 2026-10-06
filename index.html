@@ -381,63 +381,27 @@
           <div class="institution-brand-bar">
             <!-- Left: KPR Institute of Engineering and Technology -->
             <div class="brand-item kpr-brand" id="brand-kpr">
-              <img src="kpr_logo_dark.png" alt="KPR Institute of Engineering and Technology (Autonomous, Affiliated to Anna University) Learn Beyond" class="kpr-official-logo">
+              <img src="kpr_logo_dark.png" alt="KPR Institute of Engineering and Technology (Autonomous, NAAC 'A') Learn Beyond" class="kpr-official-logo">
             </div>
 
-            <!-- Center: IEEE Student Branch -->
-            <div class="brand-item ieee-brand" id="brand-ieee">
-              <img src="ieee-kpriet.png" alt="IEEE KPRIET Student Branch" class="ieee-logo-img">
-            </div>
-
-            <!-- Center-Right: IEEE Information Theory Society SBC -->
-            <div class="brand-item its-brand" id="brand-its">
-              <div class="its-logo-combo">
-                <div class="its-roundel">
-                  <svg viewBox="0 0 100 100" class="its-svg">
-                    <circle cx="50" cy="50" r="46" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="8 4" fill="none"/>
-                    <text x="50" y="24" text-anchor="middle" fill="#ffffff" font-size="11" font-family="'Rajdhani', sans-serif" font-weight="700" letter-spacing="1">IEEE INFORMATION</text>
-                    <text x="50" y="88" text-anchor="middle" fill="#ffffff" font-size="10" font-family="'Rajdhani', sans-serif" font-weight="700" letter-spacing="1">THEORY SOCIETY</text>
-                    <text x="50" y="58" text-anchor="middle" fill="#ffffff" font-size="34" font-family="'Cinzel', serif" font-weight="900" font-style="italic">it</text>
-                  </svg>
-                </div>
-                <div class="its-text-block">
-                  <span class="its-kpr-tag">KPRIET</span>
-                  <span class="its-sbc-tag">SBC</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Far Right: MAC-STYLE CONTROLS (Red/Yellow/Green + Audio On + Fullscreen + Replay) -->
+            <!-- Far Right: MAC-STYLE CONTROLS (Red / Yellow Speaker / Green + Divider + Fullscreen) -->
             <div class="mac-control-pill" id="mac-controls">
               <div class="mac-dots" aria-hidden="true">
-                <span class="mac-dot dot-red" title="Reset / Reload"></span>
-                <span class="mac-dot dot-yellow" title="Minimize"></span>
-                <span class="mac-dot dot-green" title="Expand Fullscreen"></span>
-              </div>
-              <div class="pill-divider"></div>
-              <button id="audio-toggle-btn" class="mac-pill-btn active-audio-box" title="Toggle Sound FX" aria-label="Toggle Sound FX">
-                <span class="pill-icon">
-                  <svg class="pill-svg-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                <span class="mac-dot dot-red" id="mac-dot-red" title="Reset / Replay"></span>
+                <span class="mac-dot dot-yellow" id="mac-dot-yellow" title="Toggle Sound FX">
+                  <svg class="dot-speaker-svg" viewBox="0 0 24 24" width="9" height="9" fill="currentColor">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
                   </svg>
                 </span>
-                <span class="pill-text">AUDIO ON</span>
-              </button>
+                <span class="mac-dot dot-green" id="mac-dot-green" title="Toggle Fullscreen"></span>
+              </div>
+              <div class="pill-divider"></div>
               <button id="fullscreen-btn" class="mac-pill-btn icon-only" title="Toggle 4K Fullscreen" aria-label="Toggle Fullscreen">
                 <span class="pill-icon">
                   <svg class="pill-svg-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
                   </svg>
                 </span>
-              </button>
-              <button id="replay-btn" class="mac-pill-btn" title="Replay Invitation Experience" aria-label="Replay Experience">
-                <span class="pill-icon">
-                  <svg class="pill-svg-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M1 4v6h6"/>
-                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
-                  </svg>
-                </span>
-                <span class="pill-text">REPLAY</span>
               </button>
             </div>
           </div>
@@ -593,146 +557,93 @@
 
         </section>
 
-        <!-- 5. HIGH-IMPACT PRIZE POOL BANNER -->
-        <section class="prize-pool-section">
-          <div class="prize-banner-frame">
-            <div class="prize-bracket-bracket left"></div>
-            <div class="prize-title-wrapper">
-              <h2 class="prize-main-title">BIG PRIZE POOL &amp; INTERNSHIPS</h2>
+        <!-- 5. HERO CALL TO ACTION: THINK BUILD DISRUPT & ENTER THE ARENA -->
+        <section class="hero-cta-section">
+          <div class="slogan-container">
+            <div class="slogan-laser left">
+              <svg viewBox="0 0 160 32" preserveAspectRatio="none" class="laser-svg">
+                <line x1="0" y1="16" x2="145" y2="16" stroke="#00f0ff" stroke-width="2.5"/>
+                <polyline points="125,4 145,16 125,28" stroke="#00f0ff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="145" cy="16" r="3.5" fill="#ffffff"/>
+              </svg>
             </div>
-            <div class="prize-bracket-bracket right"></div>
+            <div class="slogan-title">
+              <span class="slogan-word think-glow">THINK</span>
+              <span class="slogan-word build-glow">BUILD</span>
+              <span class="slogan-word disrupt-glow">DISRUPT</span>
+            </div>
+            <div class="slogan-laser right">
+              <svg viewBox="0 0 160 32" preserveAspectRatio="none" class="laser-svg">
+                <line x1="15" y1="16" x2="160" y2="16" stroke="#00f0ff" stroke-width="2.5"/>
+                <polyline points="35,4 15,16 35,28" stroke="#00f0ff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="15" cy="16" r="3.5" fill="#ffffff"/>
+              </svg>
+            </div>
           </div>
-          <div class="prize-subtitle-tags">
-            <span class="p-tag">✦ CASH AWARDS</span>
-            <span class="p-tag">✦ DIRECT INTERNSHIP OFFERS</span>
-            <span class="p-tag">✦ MERIT CERTIFICATES</span>
-            <span class="p-tag">✦ IEEE RECOGNITION</span>
+
+          <div class="arena-action-row">
+            <span class="action-hazard-flair left">///</span>
+            <button class="btn-enter-arena" id="btn-enter-arena" type="button" aria-label="Enter the Hackathon Arena">
+              <span class="btn-arena-text">ENTER THE ARENA</span>
+              <span class="btn-arena-arrow">→</span>
+            </button>
+            <span class="action-hazard-flair right">///</span>
           </div>
         </section>
 
-        <!-- 6. BOTTOM 3 INFORMATION CARDS -->
-        <footer class="poster-footer-console">
-          
-          <!-- CARD 1: COMMAND & COORDINATION -->
-          <div class="console-box coordinators-box">
-            <div class="console-header-tab">
-              <span class="tab-marker">■</span>
-              <span class="tab-title">COMMAND &amp; COORDINATION</span>
+        <!-- 6. OFFICIAL EVENT SPONSORS ROW -->
+        <footer class="poster-sponsors-section" id="sponsors-bar">
+          <div class="sponsors-track">
+            <div class="sponsor-item" title="MSI - Gaming & Computing Sponsor">
+              <img src="sponsor_msi_clean.png" alt="MSI" class="sponsor-logo sponsor-msi">
             </div>
-
-            <div class="coord-content-grid">
-              <!-- Student Coordinators Column -->
-              <div class="coord-group">
-                <h3 class="coord-category-title">Student Coordinators</h3>
-                <ul class="coord-list">
-                  <li class="coord-item">Keertana M S</li>
-                  <li class="coord-item">Harshita S</li>
-                  <li class="coord-item">Sanjay Kumar M</li>
-                  <li class="coord-item">Balaji S</li>
-                </ul>
-              </div>
-
-              <!-- Vertical Divider Line -->
-              <div class="coord-vertical-divider"></div>
-
-              <!-- Faculty Coordinators Column -->
-              <div class="coord-group">
-                <h3 class="coord-category-title">Faculty Coordinators</h3>
-                <ul class="coord-list">
-                  <li class="coord-item">Dr. Malathy S</li>
-                  <li class="coord-item">Dr. Deepalakshmi S</li>
-                  <li class="coord-item">Dr. Nithyakalyani K</li>
-                  <li class="coord-item">Dr. B. Abirami</li>
-                </ul>
-              </div>
+            <div class="sponsor-item" title="LITZTECH - Tech Partner">
+              <img src="sponsor_litztech_clean.png" alt="LITZTECH" class="sponsor-logo sponsor-litztech">
             </div>
-
-            <div class="card-corner-hazard">
-              <span></span><span></span><span></span>
+            <div class="sponsor-item" title="WYNTRIX - Cloud & Innovation Partner">
+              <img src="sponsor_wyntrix_clean.png" alt="WYNTRIX" class="sponsor-logo sponsor-wyntrix">
+            </div>
+            <div class="sponsor-item" title="EVENTOPIA - Community Partner">
+              <img src="sponsor_eventopia_clean.png" alt="EVENTOPIA" class="sponsor-logo sponsor-eventopia">
+            </div>
+            <div class="sponsor-item" title="IEEE - Student Branch Partner">
+              <img src="sponsor_ieee_clean.png" alt="IEEE" class="sponsor-logo sponsor-ieee">
             </div>
           </div>
-
-          <!-- CARD 2: REGISTRATION & ACCESS PORTAL -->
-          <div class="console-box registration-portal-box">
-            <div class="console-header-tab">
-              <span class="tab-marker">■</span>
-              <span class="tab-title">REGISTRATION &amp; ACCESS PORTAL</span>
-            </div>
-
-            <div class="reg-portal-inner">
-              <div class="reg-fee-label">Registration Fee (per person)</div>
-              
-              <!-- High-Tech Chamfered Fee Badge with Circuit Traces -->
-              <div class="fee-badge-container">
-                <div class="circuit-lead-trace left">
-                  <svg viewBox="0 0 60 16" class="circuit-lead-svg">
-                    <path d="M0 8 L44 8 L52 14 M44 8 L50 2" stroke="#00f0ff" stroke-width="1.8" fill="none"/>
-                    <circle cx="3" cy="8" r="2.5" fill="#00f0ff"/>
-                  </svg>
-                </div>
-                <div class="reg-fee-badge" id="fee-badge-btn" role="button" tabindex="0" title="Click for Fee & Accommodation Details">
-                  <span class="fee-amount-value">₹ 300/-</span>
-                  <div class="fee-pulse-glow"></div>
-                </div>
-                <div class="circuit-lead-trace right">
-                  <svg viewBox="0 0 60 16" class="circuit-lead-svg">
-                    <path d="M60 8 L16 8 L8 14 M16 8 L10 2" stroke="#00f0ff" stroke-width="1.8" fill="none"/>
-                    <circle cx="57" cy="8" r="2.5" fill="#00f0ff"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <div class="card-corner-hazard">
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-
-          <!-- CARD 3: CHECKOUT OUR WEBSITE! / SCAN TO REGISTER -->
-          <div class="console-box website-scan-box">
-            <div class="scan-header-title">CHECKOUT OUR WEBSITE!</div>
-
-            <!-- Framed Interactive QR Code -->
-            <div class="qr-cyber-frame" id="qr-inspect-btn" title="Click to enlarge QR Code" role="button" tabindex="0">
-              <div class="qr-inner-wrapper">
-                <img src="qr_tight.png" alt="Official Website QR Code" class="qr-image">
-                <div class="qr-scan-line"></div>
-              </div>
-            </div>
-
-            <!-- SCAN TO REGISTER Interactive Button -->
-            <a href="https://kpriet.ac.in" target="_blank" rel="noopener noreferrer" class="scan-to-register-btn" id="official-website-link">
-              <span class="scan-btn-text">SCAN TO REGISTER</span>
-            </a>
-          </div>
-
         </footer>
-
-        <!-- 7. BOTTOM TICKER / TAGLINE -->
-        <div class="footer-tagline-bar">
-          <span class="tagline-arrows left">▶▶▶</span>
-          <span class="tagline-text">INNOVATE &nbsp;✕&nbsp; COLLABORATE &nbsp;✕&nbsp; BUILD WHAT'S NEXT</span>
-          <span class="tagline-arrows right">◀◀◀</span>
-        </div>
 
       </div><!-- /poster-layout-grid -->
     </div><!-- /canvas-4k-viewport -->
   </section>
 
   <!-- ========================================== -->
-  <!-- MODAL: ENLARGED QR CODE & WEBSITE LINK    -->
+  <!-- MODAL: ARENA REGISTRATION HUB & QR CODE    -->
   <!-- ========================================== -->
   <div id="qr-modal" class="cyber-modal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-backdrop"></div>
     <div class="modal-card">
       <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">✕</button>
       <div class="modal-header">
-        <span class="modal-tag">HACKITON'26 REGISTRATION HUB</span>
-        <h3 class="modal-title">Official Portal QR Code</h3>
+        <span class="modal-tag">HACKITON'26 ARENA ACCESS PORTAL</span>
+        <h3 class="modal-title">Registration &amp; Event Details</h3>
       </div>
       <div class="modal-body">
+        <div class="modal-fee-strip">
+          <span class="modal-fee-title">REGISTRATION FEE:</span>
+          <span class="modal-fee-value">₹ 300/- (per person)</span>
+        </div>
         <div class="modal-qr-frame">
-          <img src="qr_tight.png" alt="Enlarged QR Code" class="modal-qr-img">
+          <img src="qr_tight.png" alt="Official Portal QR Code" class="modal-qr-img">
+        </div>
+        <div class="modal-coord-section">
+          <div class="modal-coord-col">
+            <h4>Student Coordinators:</h4>
+            <p>Keertana M S &bull; Harshita S &bull; Sanjay Kumar M &bull; Balaji S</p>
+          </div>
+          <div class="modal-coord-col">
+            <h4>Faculty Coordinators:</h4>
+            <p>Dr. Malathy S &bull; Dr. Deepalakshmi S &bull; Dr. Nithyakalyani K &bull; Dr. B. Abirami</p>
+          </div>
         </div>
         <div class="modal-link-box">
           <label for="modal-url-input">Direct Portal Link:</label>
@@ -743,7 +654,7 @@
           <div id="copy-status" class="copy-status">Link copied to clipboard!</div>
         </div>
         <a href="https://kpriet.ac.in" target="_blank" rel="noopener noreferrer" class="btn-modal-open-link" id="modal-open-link">
-          OPEN WEBSITE DIRECTLY ➔
+          REGISTER NOW ON OFFICIAL PORTAL ➔
         </a>
       </div>
     </div>
