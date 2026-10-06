@@ -46,6 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  if (urlParams.get('openmenu') === '1') {
+    const menuContainer = document.getElementById('quick-menu-container');
+    const menuToggle = document.getElementById('quick-menu-toggle');
+    if (menuContainer) menuContainer.classList.add('open');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+  }
+
   if (requestedStage === 'hackathon') {
     const curtain = document.getElementById('initial-black-curtain');
     if (curtain) curtain.style.display = 'none';
@@ -432,13 +439,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // =========================================================================
   // LUXURY GOLD STAGE 3D PARALLAX (SCREEN 1)
-  // Multi-plane realistic depth for horizon flare, circular arch & 3D text
+  // Subtle realistic depth for content & horizon flare while concentric circles remain fixed
   // =========================================================================
   function initLuxuryStage3DParallax() {
     const stageContent = document.getElementById('stage-center-content');
     const horizonFlare = document.querySelector('.stage-horizon-flare');
-    const circularArch = document.querySelector('.stage-circular-arch');
-    const floorRings = document.querySelector('.floor-rings-perspective');
 
     if (!stageContent) return;
 
@@ -448,21 +453,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const normX = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to +1
       const normY = (e.clientY / window.innerHeight - 0.5) * 2;
 
-      // Subtle tilt
-      const rotY = normX * 8; // -8 to +8 deg
-      const rotX = -normY * 6; // -6 to +6 deg
+      // Subtle tilt for center text content
+      const rotY = normX * 6; // -6 to +6 deg
+      const rotX = -normY * 4; // -4 to +4 deg
 
       stageContent.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
 
       if (horizonFlare) {
-        horizonFlare.style.transform = `translate(calc(-50% + ${normX * 14}px), calc(-50% + ${normY * 8}px))`;
+        horizonFlare.style.transform = `translate(calc(-50% + ${normX * 10}px), calc(-50% + ${normY * 6}px))`;
       }
-      if (circularArch) {
-        circularArch.style.transform = `translate(calc(-50% + ${-normX * 18}px), calc(-50% + ${-normY * 12}px))`;
-      }
-      if (floorRings) {
-        floorRings.style.transform = `perspective(600px) rotateX(${74 + normY * 3}deg) rotateY(${-normX * 6}deg)`;
-      }
+      // Concentric circles (circular arch & floor perspective rings) remain fixed and steady
     });
 
     // Domain Pillar Cards on Screen 1
@@ -747,20 +747,49 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // TOOLBAR BUTTONS & MAC-STYLE CONTROLS (AUDIO / FULLSCREEN / REPLAY)
+  // 3-DOTS FLOATING MENU & ACTION CONTROLS (AUDIO / FULLSCREEN / REPLAY)
   // =========================================================================
+  const quickMenuContainer = document.getElementById('quick-menu-container');
+  const quickMenuToggle = document.getElementById('quick-menu-toggle');
+
+  if (quickMenuToggle && quickMenuContainer) {
+    quickMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = quickMenuContainer.classList.toggle('open');
+      quickMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (state.audioEnabled) {
+        getAudioContext();
+        playCyberChirp(1100, 0.06);
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!quickMenuContainer.contains(e.target)) {
+        quickMenuContainer.classList.remove('open');
+        quickMenuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        quickMenuContainer.classList.remove('open');
+        quickMenuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   document.querySelectorAll('#audio-toggle-btn, .mac-pill-btn[id="audio-toggle-btn"]').forEach(btn => {
     btn.addEventListener('click', () => {
       state.audioEnabled = !state.audioEnabled;
       document.querySelectorAll('#audio-toggle-btn, .mac-pill-btn[id="audio-toggle-btn"]').forEach(b => {
-        const icon = b.querySelector('.btn-icon, .pill-icon');
-        const text = b.querySelector('.btn-text, .pill-text');
+        const icon = b.querySelector('.menu-item-icon, .btn-icon, .pill-icon');
+        const text = b.querySelector('.menu-item-label, .btn-text, .pill-text');
         if (state.audioEnabled) {
           if (icon) icon.textContent = '🔊';
           if (text) text.textContent = 'AUDIO ON';
         } else {
           if (icon) icon.textContent = '🔇';
-          if (text) text.textContent = 'MUTED';
+          if (text) text.textContent = 'AUDIO MUTED';
         }
       });
       if (state.audioEnabled) {
@@ -786,6 +815,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('#replay-btn, .mac-pill-btn[id="replay-btn"], .dot-red').forEach(btn => {
     btn.addEventListener('click', () => {
       playCyberChirp(800, 0.1);
+      if (quickMenuContainer) {
+        quickMenuContainer.classList.remove('open');
+        if (quickMenuToggle) quickMenuToggle.setAttribute('aria-expanded', 'false');
+      }
+
       // Reset to invitation screen
       screenHackathon.classList.remove('active');
       glitchStage.classList.remove('active');

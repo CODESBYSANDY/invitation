@@ -59,56 +59,138 @@ html, body {
 }
 
 /* ==========================================================================
-   QUICK TOOLBAR (AUDIO / 4K FULLSCREEN / REPLAY)
+   FLOATING 3-DOTS ACTION MENU & DROPDOWN CONTROLS
    ========================================================================== */
-.quick-toolbar {
+.quick-menu-container {
   position: fixed;
-  top: 18px;
-  right: 22px;
+  top: 22px;
+  right: 26px;
   z-index: 9999;
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-.toolbar-btn {
+.quick-menu-toggle {
   display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 8px 16px;
-  background: rgba(10, 14, 28, 0.75);
-  border: 1px solid rgba(0, 240, 255, 0.35);
-  border-radius: 4px;
-  color: #e0f4ff;
-  font-family: var(--font-cyber);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(12, 14, 24, 0.72);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  color: #fad968;
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(212, 175, 55, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
 }
 
-.toolbar-btn:hover {
-  background: rgba(0, 240, 255, 0.15);
-  border-color: var(--cyber-cyan);
+.quick-menu-toggle:hover {
+  background: rgba(22, 20, 10, 0.9);
+  border-color: #ffe599;
   color: #ffffff;
-  box-shadow: 0 0 16px var(--cyber-cyan-glow);
-  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.75), 0 6px 20px rgba(0, 0, 0, 0.7);
+  transform: scale(1.08);
 }
 
-.stage-invitation .toolbar-btn {
+.quick-menu-toggle:active {
+  transform: scale(0.96);
+}
+
+.quick-menu-container.open .quick-menu-toggle {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #fad968;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+  transform: rotate(90deg);
+}
+
+.kebab-icon-svg {
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.8));
+}
+
+/* Dropdown Action Menu */
+.quick-menu-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 200px;
+  background: rgba(8, 10, 18, 0.94);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(212, 175, 55, 0.25),
+    inset 0 0 15px rgba(212, 175, 55, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px) scale(0.94);
+  transform-origin: top right;
+  transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1), transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quick-menu-container.open .quick-menu-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.menu-action-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #e8ecf6;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.menu-action-item:hover {
+  background: rgba(212, 175, 55, 0.16);
   border-color: rgba(212, 175, 55, 0.4);
-  color: var(--gold-light);
+  color: #fff6d9;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.25);
+  transform: translateX(-2px);
 }
 
-.stage-invitation .toolbar-btn:hover {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: var(--gold-primary);
-  box-shadow: 0 0 16px var(--gold-glow);
+.menu-action-item:active {
+  transform: translateX(0) scale(0.98);
 }
 
-body.stage-hackathon .quick-toolbar {
+.menu-item-icon {
+  font-size: 15px;
+  min-width: 20px;
+  text-align: center;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.6));
+}
+
+.menu-item-label {
+  flex: 1;
+  white-space: nowrap;
+}
+
+body.stage-hackathon .quick-menu-container {
   display: none !important;
 }
 
@@ -324,11 +406,11 @@ body.stage-hackathon .quick-toolbar {
 /* Circular Arch & Concentric Dotted Halo */
 .stage-circular-arch {
   position: absolute;
-  top: 48%;
+  top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(650px, 66vw, 1400px);
-  height: clamp(650px, 66vw, 1400px);
+  width: min(72vw, 92vh);
+  height: min(72vw, 92vh);
   pointer-events: none;
   z-index: 2;
   animation: archBreathing 4.5s ease-in-out infinite alternate;
@@ -375,7 +457,7 @@ body.stage-hackathon .quick-toolbar {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 48vh;
+  height: clamp(340px, 44vh, 620px);
   pointer-events: none;
   z-index: 2;
   overflow: hidden;
@@ -394,10 +476,10 @@ body.stage-hackathon .quick-toolbar {
 
 .floor-rings-perspective {
   position: absolute;
-  bottom: -150px;
-  width: clamp(700px, 80vw, 1800px);
-  height: clamp(350px, 40vw, 900px);
-  transform: perspective(600px) rotateX(74deg);
+  bottom: clamp(-85px, -6.5vh, -35px);
+  width: min(92vw, 1750px);
+  height: min(48vw, 820px);
+  transform: perspective(650px) rotateX(73deg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -457,14 +539,15 @@ body.stage-hackathon .quick-toolbar {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: clamp(900px, 86vw, 1850px);
+  max-width: min(92vw, 1750px);
   height: 100%;
-  max-height: 94vh;
+  max-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: clamp(12px, 2vh, 32px) clamp(16px, 2.5vw, 48px);
+  justify-content: center;
+  gap: clamp(8px, 1.5vh, 22px);
+  padding: clamp(14px, 2.2vh, 36px) clamp(16px, 2.5vw, 48px);
   text-align: center;
   animation: photoOneReveal 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
   opacity: 0;
@@ -483,50 +566,52 @@ body.stage-hackathon .quick-toolbar {
   }
 }
 
-/* 1. 3D GOLD METALLIC KPR EMBLEM */
+/* 1. EXACT 3D GOLD METALLIC KPR EMBLEM */
 .gold-emblem-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: clamp(4px, 1vh, 16px);
+  margin-top: clamp(2px, 0.6vh, 10px);
 }
 
 .emblem-ambient-glow {
   position: absolute;
-  width: clamp(90px, 9vw, 170px);
-  height: clamp(80px, 8vw, 150px);
-  background: radial-gradient(circle, rgba(255, 235, 165, 0.6) 0%, rgba(212, 175, 55, 0.3) 50%, transparent 75%);
-  filter: blur(20px);
+  width: clamp(110px, 12vw, 200px);
+  height: clamp(80px, 9vw, 150px);
+  background: radial-gradient(ellipse at center, rgba(255, 235, 165, 0.7) 0%, rgba(212, 175, 55, 0.38) 45%, transparent 75%);
+  filter: blur(22px);
   animation: emblemAura 3s ease-in-out infinite alternate;
 }
 
 @keyframes emblemAura {
-  0% { transform: scale(0.9); opacity: 0.6; }
+  0% { transform: scale(0.92); opacity: 0.65; }
   100% { transform: scale(1.15); opacity: 0.95; }
 }
 
-.gold-kpr-emblem-svg {
-  width: clamp(110px, 9vw, 195px);
+.gold-kpr-emblem-img {
+  width: clamp(82px, 7.8vw, 135px);
   height: auto;
-  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 35px rgba(212, 175, 55, 0.85));
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 32px rgba(212, 175, 55, 0.85));
   animation: emblemFloatGlow 3.5s ease-in-out infinite alternate;
 }
 
 @keyframes emblemFloatGlow {
   0% { transform: translateY(0px); }
-  100% { transform: translateY(-6px); }
+  100% { transform: translateY(-5px); }
 }
 
 /* 2. INSTITUTION AND PRINCIPAL TITLES */
 .stage-institution-title {
   font-family: var(--font-body);
-  font-size: clamp(15px, 1.45vw, 29px);
+  font-size: clamp(14px, 1.4vw, 28px);
   font-weight: 700;
   letter-spacing: clamp(3px, 0.38vw, 8px);
   color: #fff4d4;
   text-transform: uppercase;
-  margin-top: clamp(6px, 1vh, 12px);
+  margin-top: 0;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 0 20px rgba(212, 175, 55, 0.45);
 }
 
@@ -535,7 +620,7 @@ body.stage-hackathon .quick-toolbar {
   align-items: center;
   justify-content: center;
   gap: clamp(10px, 1.2vw, 22px);
-  margin-top: 4px;
+  margin-top: -4px;
 }
 
 .stage-principal-title .title-dash {
@@ -555,7 +640,7 @@ body.stage-hackathon .quick-toolbar {
 
 /* 3. ORNATE SPECIAL INVITATION BRACKET BADGE */
 .special-invitation-badge-wrap {
-  margin-top: clamp(10px, 1.6vh, 22px);
+  margin-top: clamp(2px, 0.6vh, 8px);
 }
 
 .ornate-bracket-badge {
@@ -564,12 +649,12 @@ body.stage-hackathon .quick-toolbar {
   align-items: center;
   justify-content: center;
   gap: clamp(10px, 1.2vw, 20px);
-  background: rgba(14, 11, 5, 0.85);
+  background: rgba(14, 11, 5, 0.88);
   border: 2px solid #fad968;
   box-shadow: 
     0 0 30px rgba(229, 179, 56, 0.8),
     inset 0 0 20px rgba(229, 179, 56, 0.4);
-  padding: clamp(7px, 1.1vh, 13px) clamp(26px, 3vw, 56px);
+  padding: clamp(7px, 1vh, 12px) clamp(24px, 2.8vw, 54px);
   /* Ornate 45-degree chamfered notched bracket shape matching Photo 1 */
   clip-path: polygon(
     14px 0%, 
@@ -582,6 +667,7 @@ body.stage-hackathon .quick-toolbar {
     0% 14px
   );
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   animation: badgeGlowPulse 2.8s ease-in-out infinite alternate;
 }
 
@@ -609,12 +695,12 @@ body.stage-hackathon .quick-toolbar {
 /* 4. YOU ARE INVITED */
 .stage-you-are-invited {
   font-family: var(--font-serif);
-  font-size: clamp(17px, 1.85vw, 36px);
+  font-size: clamp(16px, 1.75vw, 34px);
   font-weight: 600;
   letter-spacing: clamp(6px, 0.75vw, 16px);
   color: #fff4d4;
   text-transform: uppercase;
-  margin-top: clamp(8px, 1.4vh, 20px);
+  margin-top: clamp(2px, 0.6vh, 8px);
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 175, 55, 0.65);
 }
 
@@ -622,15 +708,15 @@ body.stage-hackathon .quick-toolbar {
 .stage-title-stage {
   position: relative;
   display: inline-block;
-  margin: clamp(4px, 0.8vh, 14px) 0;
+  margin: clamp(0px, 0.4vh, 8px) 0;
 }
 
 .stage-hackiton-3d {
   font-family: var(--font-cyber);
-  font-size: clamp(52px, 7vw, 152px);
+  font-size: clamp(56px, 7.8vw, 160px);
   font-weight: 900;
   letter-spacing: clamp(4px, 0.45vw, 12px);
-  line-height: 0.98;
+  line-height: 0.95;
   text-transform: uppercase;
   /* Realistic 3D Chiseled Metallic Gold with Dynamic Shimmer */
   background: linear-gradient(135deg, 
@@ -660,8 +746,6 @@ body.stage-hackathon .quick-toolbar {
   100% { background-position: 0% 50%; }
 }
 
-
-
 /* Corner Starburst Lens Flares on Title */
 .title-flare-star {
   position: absolute;
@@ -690,118 +774,21 @@ body.stage-hackathon .quick-toolbar {
   100% { transform: scale(1.3) rotate(90deg); opacity: 1; }
 }
 
-/* 6. 24-HOUR NATIONAL LEVEL HACKATHON WITH DIAMOND DIVIDERS */
-.stage-hackathon-subline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(4px, 0.7vh, 8px);
-  margin-bottom: clamp(6px, 1.2vh, 16px);
-}
-
-.diamond-divider-line {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: min(85vw, 680px);
-}
-
-.diamond-divider-line .line-part {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
-}
-
-.diamond-dot {
-  color: #fce493;
-  font-size: 8px;
-  text-shadow: 0 0 8px #ffffff;
-}
-
-.hackathon-subtext {
+/* 6. 24-HOUR NATIONAL LEVEL HACKATHON TEXT (CLEAN, NO BORDER) */
+.stage-hackathon-subtext {
   font-family: var(--font-body);
   font-size: clamp(12px, 1.25vw, 23px);
   font-weight: 700;
   letter-spacing: clamp(4px, 0.45vw, 9px);
   color: #ffffff;
   text-transform: uppercase;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(212, 175, 55, 0.5);
+  margin-top: clamp(2px, 0.5vh, 8px);
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.85), 0 0 24px rgba(212, 175, 55, 0.5);
 }
 
-/* 7. FOUR GOLDEN DOMAIN PILLARS (AI, CYBERSECURITY, SMART INDUSTRY, GREEN TECHNOLOGY) */
-.four-domain-pillars-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(14px, 2.5vw, 48px);
-  width: 100%;
-  max-width: clamp(750px, 72vw, 1300px);
-  margin: clamp(4px, 1vh, 16px) 0;
-}
-
-.domain-pillar-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(6px, 1vh, 12px);
-  cursor: pointer;
-  transition: transform 0.28s ease, filter 0.28s ease;
-}
-
-.domain-pillar-card:hover {
-  transform: translateY(-4px) scale(1.06);
-  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.9));
-}
-
-.pillar-icon-box {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: clamp(48px, 4.8vw, 84px);
-  height: clamp(48px, 4.8vw, 84px);
-}
-
-.pillar-svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.75));
-  transition: transform 0.3s ease;
-}
-
-.domain-pillar-card:hover .pillar-svg {
-  transform: scale(1.08);
-}
-
-.pillar-horizon-arc {
-  position: absolute;
-  bottom: -6px;
-  width: 120%;
-  height: 2px;
-  background: radial-gradient(ellipse at center, rgba(255, 235, 170, 0.75) 0%, transparent 80%);
-}
-
-.pillar-label {
-  font-family: var(--font-body);
-  font-size: clamp(10px, 0.95vw, 16px);
-  font-weight: 700;
-  letter-spacing: clamp(1.5px, 0.2vw, 3px);
-  color: #ffffff;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-  white-space: nowrap;
-}
-
-.pillar-vertical-sep {
-  width: 1px;
-  height: clamp(38px, 4vh, 65px);
-  background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.45), transparent);
-}
-
-/* 8. THE MAJESTIC GLOWING "ACCEPT INVITATION" BUTTON */
+/* 7. THE MAJESTIC GLOWING "ACCEPT INVITATION" BUTTON */
 .stage-action-area {
-  margin-top: clamp(8px, 1.6vh, 24px);
+  margin-top: clamp(14px, 2.2vh, 32px);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -873,7 +860,7 @@ body.stage-hackathon .quick-toolbar {
   justify-content: center;
   gap: clamp(12px, 1.5vw, 24px);
   background: linear-gradient(180deg, #10121c 0%, #05060a 100%);
-  padding: clamp(12px, 1.8vh, 22px) clamp(32px, 4vw, 72px);
+  padding: clamp(14px, 1.9vh, 22px) clamp(38px, 4.5vw, 76px);
   clip-path: polygon(
     13px 0%, 
     calc(100% - 13px) 0%, 
@@ -887,32 +874,15 @@ body.stage-hackathon .quick-toolbar {
   z-index: 2;
 }
 
-.btn-diamond-star {
-  color: #fff2b8;
-  font-size: clamp(14px, 1.4vw, 22px);
-  text-shadow: 0 0 10px #ffffff;
-}
-
 .btn-text-content {
   font-family: var(--font-body);
-  font-size: clamp(14px, 1.5vw, 26px);
+  font-size: clamp(13px, 1.4vw, 24px);
   font-weight: 800;
-  letter-spacing: clamp(3px, 0.4vw, 7px);
+  letter-spacing: clamp(3px, 0.35vw, 6px);
   color: #ffffff;
   text-transform: uppercase;
-  text-shadow: 0 0 14px rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.9), 0 0 20px rgba(212, 175, 55, 0.5);
   white-space: nowrap;
-}
-
-.btn-nav-arrow {
-  color: #fff2b8;
-  font-size: clamp(16px, 1.6vw, 26px);
-  transition: transform 0.25s ease;
-  text-shadow: 0 0 10px #ffe599;
-}
-
-.btn-exact-photo-accept:hover .btn-nav-arrow {
-  transform: translateX(6px);
 }
 
 .btn-floor-cast-reflection {
