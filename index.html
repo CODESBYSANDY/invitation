@@ -350,40 +350,38 @@
         <div class="cyber-grid-floor"></div>
         <div class="cyber-speedlines"></div>
         <div class="cyber-aurora-glow"></div>
-        <!-- High-tech Vector Cyber Shield Aura -->
+        <!-- High-tech Vector Cyber Shield Aura (16:9 Viewport Fitting) -->
         <div class="cyber-vector-crest-aura">
-          <svg viewBox="0 0 500 500" class="cyber-shield-svg" fill="none">
-            <polygon points="250,30 460,110 420,380 250,470 80,380 40,110" stroke="#00f0ff" stroke-width="2" stroke-dasharray="16 8" opacity="0.25"/>
-            <polygon points="250,60 430,130 390,360 250,440 110,360 70,130" stroke="#ff003c" stroke-width="1.5" opacity="0.18"/>
-            <circle cx="250" cy="250" r="180" stroke="#00f0ff" stroke-width="1" stroke-dasharray="6 4" opacity="0.2"/>
-            <circle cx="250" cy="250" r="120" stroke="#e024c3" stroke-width="1" opacity="0.2"/>
+          <svg viewBox="0 0 1920 1080" class="cyber-shield-svg" preserveAspectRatio="none" fill="none">
+            <!-- Outer cyan dashed HUD framework matching poster -->
+            <path d="M 140 100 L 420 36 L 1500 36 L 1780 100 L 1840 520 L 1780 940 L 1480 1024 L 440 1024 L 140 940 L 80 520 Z" stroke="#00f0ff" stroke-width="2" stroke-dasharray="14 10" opacity="0.38"/>
+            <!-- Inner magenta polygon framing central arena -->
+            <polygon points="960,170 1620,380 1560,940 360,940 300,380" stroke="#ff003c" stroke-width="1.8" stroke-dasharray="10 8" opacity="0.25"/>
+            <!-- Concentric HUD radar rings behind trophy -->
+            <circle cx="960" cy="485" r="150" stroke="#00f0ff" stroke-width="1.4" stroke-dasharray="6 4" opacity="0.35"/>
+            <circle cx="960" cy="485" r="260" stroke="#00f0ff" stroke-width="1.2" stroke-dasharray="12 6" opacity="0.28"/>
+            <circle cx="960" cy="485" r="390" stroke="#e024c3" stroke-width="1" opacity="0.2"/>
+            <!-- Subtle telemetry corner crosshairs -->
+            <path d="M 60 50 L 90 50 M 60 50 L 60 80" stroke="#00f0ff" stroke-width="2" opacity="0.5"/>
+            <path d="M 1860 50 L 1830 50 M 1860 50 L 1860 80" stroke="#00f0ff" stroke-width="2" opacity="0.5"/>
+            <path d="M 60 1030 L 90 1030 M 60 1030 L 60 1000" stroke="#00f0ff" stroke-width="2" opacity="0.5"/>
+            <path d="M 1860 1030 L 1830 1030 M 1860 1030 L 1860 1000" stroke="#00f0ff" stroke-width="2" opacity="0.5"/>
           </svg>
         </div>
       </div>
 
       <!-- ======================================================== -->
       <!-- POSTER CONTENT RECONSTRUCTED AT 4K ULTRA-CRISP FIDELITY   -->
+      <!-- MATCHING EXACT USER REFERENCE IMAGE UI & SPACING         -->
       <!-- ======================================================== -->
       <div class="poster-layout-grid">
 
-        <!-- 1. TOP HEADER STRIP: LOGOS & PRESENTING DEPARTMENT -->
+        <!-- 1. TOP HEADER STRIP: LOGOS, DEPT & TOP-RIGHT MAC CONTROLS -->
         <header class="poster-header-section">
           <div class="institution-brand-bar">
             <!-- Left: KPR Institute of Engineering and Technology -->
             <div class="brand-item kpr-brand" id="brand-kpr">
-              <div class="kpr-logo-combo">
-                <svg class="kpr-vector-mark" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Learn Beyond Stylized Petal Emblem -->
-                  <path d="M22 62 C10 50, 10 32, 28 32 C38 32, 44 42, 44 54 C44 40, 52 26, 68 26 C82 26, 88 40, 78 54 C66 70, 48 76, 42 76 C40 68, 42 58, 38 52 C32 46, 26 52, 22 62 Z" fill="#ffffff" opacity="0.95"/>
-                  <path d="M42 76 C42 60, 46 40, 56 16 C60 28, 64 36, 64 48 C56 58, 48 68, 42 76 Z" fill="#2ED573"/>
-                </svg>
-                <div class="kpr-titles">
-                  <div class="kpr-primary-title">KPR Institute of</div>
-                  <div class="kpr-secondary-title">Engineering and Technology</div>
-                  <div class="kpr-accreditation">(Autonomous, NAAC "A")</div>
-                  <div class="kpr-motto">Learn Beyond</div>
-                </div>
-              </div>
+              <img src="kpr_logo_dark.png" alt="KPR Institute of Engineering and Technology (Autonomous, Affiliated to Anna University) Learn Beyond" class="kpr-official-logo">
             </div>
 
             <!-- Center: IEEE Student Branch -->
@@ -391,12 +389,12 @@
               <img src="ieee-kpriet.png" alt="IEEE KPRIET Student Branch" class="ieee-logo-img">
             </div>
 
-            <!-- Right: IEEE Information Theory Society SBC -->
+            <!-- Center-Right: IEEE Information Theory Society SBC -->
             <div class="brand-item its-brand" id="brand-its">
               <div class="its-logo-combo">
                 <div class="its-roundel">
                   <svg viewBox="0 0 100 100" class="its-svg">
-                    <circle cx="50" cy="50" r="46" stroke="#ffffff" stroke-width="3" stroke-dasharray="8 4" fill="none"/>
+                    <circle cx="50" cy="50" r="46" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="8 4" fill="none"/>
                     <text x="50" y="24" text-anchor="middle" fill="#ffffff" font-size="11" font-family="'Rajdhani', sans-serif" font-weight="700" letter-spacing="1">IEEE INFORMATION</text>
                     <text x="50" y="88" text-anchor="middle" fill="#ffffff" font-size="10" font-family="'Rajdhani', sans-serif" font-weight="700" letter-spacing="1">THEORY SOCIETY</text>
                     <text x="50" y="58" text-anchor="middle" fill="#ffffff" font-size="34" font-family="'Cinzel', serif" font-weight="900" font-style="italic">it</text>
@@ -407,6 +405,40 @@
                   <span class="its-sbc-tag">SBC</span>
                 </div>
               </div>
+            </div>
+
+            <!-- Far Right: MAC-STYLE CONTROLS (Red/Yellow/Green + Audio On + Fullscreen + Replay) -->
+            <div class="mac-control-pill" id="mac-controls">
+              <div class="mac-dots" aria-hidden="true">
+                <span class="mac-dot dot-red" title="Reset / Reload"></span>
+                <span class="mac-dot dot-yellow" title="Minimize"></span>
+                <span class="mac-dot dot-green" title="Expand Fullscreen"></span>
+              </div>
+              <div class="pill-divider"></div>
+              <button id="audio-toggle-btn" class="mac-pill-btn active-audio-box" title="Toggle Sound FX" aria-label="Toggle Sound FX">
+                <span class="pill-icon">
+                  <svg class="pill-svg-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                  </svg>
+                </span>
+                <span class="pill-text">AUDIO ON</span>
+              </button>
+              <button id="fullscreen-btn" class="mac-pill-btn icon-only" title="Toggle 4K Fullscreen" aria-label="Toggle Fullscreen">
+                <span class="pill-icon">
+                  <svg class="pill-svg-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                  </svg>
+                </span>
+              </button>
+              <button id="replay-btn" class="mac-pill-btn" title="Replay Invitation Experience" aria-label="Replay Experience">
+                <span class="pill-icon">
+                  <svg class="pill-svg-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 4v6h6"/>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                  </svg>
+                </span>
+                <span class="pill-text">REPLAY</span>
+              </button>
             </div>
           </div>
 
@@ -434,7 +466,7 @@
           </div>
         </section>
 
-        <!-- 3. QUICK INTEL BADGES: DATE & SQUAD CAPACITY -->
+        <!-- 3. QUICK INTEL BADGES: DATE & SQUAD CAPACITY & DOMAINS -->
         <section class="intel-badges-strip">
           <!-- Date Badge -->
           <div class="cyber-badge-node badge-date">
@@ -462,141 +494,113 @@
           </div>
         </section>
 
-        <!-- 4. SIX HACKATHON DOMAINS (FUTURISTIC HUD BRACKETS) -->
-        <section class="domains-hud-grid" aria-label="Hackathon Track Domains">
+        <!-- 4. CENTRAL SHOWCASE: 3 LEFT DOMAIN PILLS + CENTRAL TROPHY + 3 RIGHT DOMAIN PILLS -->
+        <section class="central-showcase-arena" aria-label="Domains and Champions Trophy">
           
-          <!-- Row 1: 4 Domains -->
-          <div class="domains-row row-four">
-            
-            <!-- Domain 1: AI & SMART TECH -->
-            <div class="domain-hud-box" data-domain="ai">
-              <div class="hud-bracket-shape">
-                <div class="hud-tech-decorations">
-                  <div class="quad-slashes">
-                    <span></span><span></span><span></span><span></span>
-                  </div>
-                </div>
-                <div class="hud-box-content">
-                  <span class="domain-icon">⚡</span>
-                  <span class="domain-label">AI &amp; SMART TECH</span>
-                </div>
-                <div class="hud-hover-glow"></div>
+          <!-- LEFT COLUMN: 3 DOMAIN PILL CARDS (CURVED: TOP, MID SHIFTED LEFT, BOTTOM) -->
+          <div class="domains-column domains-left curved-domains-left">
+            <!-- 1. AI & SMART TECH -->
+            <div class="domain-pill-card chamfer-card curve-pos-top" data-domain="ai" role="button" tabindex="0" title="Click for Track Details">
+              <div class="pill-hazard-ticks left"><span></span><span></span><span></span></div>
+              <div class="pill-card-body">
+                <span class="pill-domain-icon">⚡</span>
+                <span class="domain-pill-title">AI &amp; SMART TECH</span>
               </div>
+              <div class="pill-hazard-ticks right"><span></span><span></span><span></span></div>
+              <div class="pill-hover-glow"></div>
             </div>
 
-            <!-- Domain 2: CYBER SAFETY -->
-            <div class="domain-hud-box" data-domain="cyber">
-              <div class="hud-bracket-shape">
-                <div class="hud-tech-decorations">
-                  <div class="quad-slashes">
-                    <span></span><span></span><span></span><span></span>
-                  </div>
-                </div>
-                <div class="hud-box-content">
-                  <span class="domain-icon">🛡️</span>
-                  <span class="domain-label">CYBER SAFETY</span>
-                </div>
-                <div class="hud-hover-glow"></div>
+            <!-- 2. OPEN INNOVATION (Moved little left) -->
+            <div class="domain-pill-card chamfer-card curve-pos-mid" data-domain="open" role="button" tabindex="0" title="Click for Track Details">
+              <div class="pill-hazard-ticks left"><span></span><span></span><span></span></div>
+              <div class="pill-card-body">
+                <span class="pill-domain-icon">💡</span>
+                <span class="domain-pill-title">OPEN INNOVATION</span>
               </div>
+              <div class="pill-hazard-ticks right"><span></span><span></span><span></span></div>
+              <div class="pill-hover-glow"></div>
             </div>
 
-            <!-- Domain 3: SMART INDUSTRY -->
-            <div class="domain-hud-box" data-domain="industry">
-              <div class="hud-bracket-shape">
-                <div class="hud-tech-decorations">
-                  <div class="quad-slashes">
-                    <span></span><span></span><span></span><span></span>
-                  </div>
-                </div>
-                <div class="hud-box-content">
-                  <span class="domain-icon">🏭</span>
-                  <span class="domain-label">SMART INDUSTRY</span>
-                </div>
-                <div class="hud-hover-glow"></div>
+            <!-- 3. HEALTH TECH (Curved back) -->
+            <div class="domain-pill-card chamfer-card curve-pos-bottom" data-domain="health" role="button" tabindex="0" title="Click for Track Details">
+              <div class="pill-hazard-ticks left"><span></span><span></span><span></span></div>
+              <div class="pill-card-body">
+                <span class="pill-domain-icon">🧬</span>
+                <span class="domain-pill-title">HEALTH TECH</span>
               </div>
+              <div class="pill-hazard-ticks right"><span></span><span></span><span></span></div>
+              <div class="pill-hover-glow"></div>
             </div>
-
-            <!-- Domain 4: OPEN INNOVATION -->
-            <div class="domain-hud-box" data-domain="open">
-              <div class="hud-bracket-shape">
-                <div class="hud-tech-decorations">
-                  <div class="quad-slashes">
-                    <span></span><span></span><span></span><span></span>
-                  </div>
-                </div>
-                <div class="hud-box-content">
-                  <span class="domain-icon">💡</span>
-                  <span class="domain-label">OPEN INNOVATION</span>
-                </div>
-                <div class="hud-hover-glow"></div>
-              </div>
-            </div>
-
           </div>
 
-          <!-- Row 2: 2 Domains Flanking the Trophy -->
-          <div class="domains-row row-two">
-            
-            <!-- Domain 5: HEALTH TECH -->
-            <div class="domain-hud-box" data-domain="health">
-              <div class="hud-bracket-shape">
-                <div class="hud-tech-decorations">
-                  <div class="quad-slashes">
-                    <span></span><span></span><span></span><span></span>
-                  </div>
-                </div>
-                <div class="hud-box-content">
-                  <span class="domain-icon">🧬</span>
-                  <span class="domain-label">HEALTH TECH</span>
-                </div>
-                <div class="hud-hover-glow"></div>
-              </div>
-            </div>
-
-            <!-- Domain 6: GREEN TECH -->
-            <div class="domain-hud-box" data-domain="green">
-              <div class="hud-bracket-shape">
-                <div class="hud-tech-decorations">
-                  <div class="quad-slashes">
-                    <span></span><span></span><span></span><span></span>
-                  </div>
-                </div>
-                <div class="hud-box-content">
-                  <span class="domain-icon">🌱</span>
-                  <span class="domain-label">GREEN TECH</span>
-                </div>
-                <div class="hud-hover-glow"></div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- 5. CENTERPIECE: GLOWING CYBERPUNK TROPHY & HOLOGRAPHIC LAURELS -->
-        <section class="trophy-centerpiece-section" id="trophy-stage">
-          <div class="trophy-hologram-wrap" id="trophy-interactive-card">
-            <!-- Neon Cyan & Magenta Light Aura -->
-            <div class="trophy-core-glow"></div>
-            
-            <!-- Authentic Glowing Trophy from Poster -->
-            <div class="trophy-asset-container">
-              <img src="trophy_transparent.png" alt="HACKITON'26 Cyber Champions Trophy" class="trophy-image-neon" id="trophy-glow-img">
+          <!-- CENTER COLUMN: HOLOGRAPHIC TROPHY WITH LAURELS & CYBER RINGS -->
+          <div class="trophy-centerpiece-column" id="trophy-stage">
+            <div class="trophy-hologram-wrap" id="trophy-interactive-card">
+              <!-- Radial Core Cyber Neon Glow -->
+              <div class="trophy-core-glow"></div>
               
-              <!-- Floating Cyber Hologram Rings -->
+              <!-- Astrolabe / Hologram Rings -->
               <div class="hologram-ring ring-1"></div>
               <div class="hologram-ring ring-2"></div>
+              
+              <!-- Interactive Particles Canvas -->
               <div class="hologram-particles-canvas-wrap">
                 <canvas id="trophy-particles-canvas"></canvas>
               </div>
+
+              <!-- Authentic High-Resolution Trophy with Laurels -->
+              <div class="trophy-asset-container">
+                <img src="trophy_transparent.png" alt="HACKITON'26 Cyber Champions Trophy" class="trophy-image-neon" id="trophy-glow-img">
+              </div>
             </div>
           </div>
+
+          <!-- RIGHT COLUMN: 3 DOMAIN PILL CARDS (CURVED: TOP, MID SHIFTED RIGHT, BOTTOM) -->
+          <div class="domains-column domains-right curved-domains-right">
+            <!-- 4. CYBER SAFETY -->
+            <div class="domain-pill-card chamfer-card curve-pos-top" data-domain="cyber" role="button" tabindex="0" title="Click for Track Details">
+              <div class="pill-hazard-ticks left"><span></span><span></span><span></span></div>
+              <div class="pill-card-body">
+                <span class="pill-domain-icon">🛡</span>
+                <span class="domain-pill-title">CYBER SAFETY</span>
+              </div>
+              <div class="pill-hazard-ticks right"><span></span><span></span><span></span></div>
+              <div class="pill-hover-glow"></div>
+            </div>
+
+            <!-- 5. GREEN TECH (Moved little right) -->
+            <div class="domain-pill-card chamfer-card curve-pos-mid" data-domain="green" role="button" tabindex="0" title="Click for Track Details">
+              <div class="pill-hazard-ticks left"><span></span><span></span><span></span></div>
+              <div class="pill-card-body">
+                <span class="pill-domain-icon">🌱</span>
+                <span class="domain-pill-title">GREEN TECH</span>
+              </div>
+              <div class="pill-hazard-ticks right"><span></span><span></span><span></span></div>
+              <div class="pill-hover-glow"></div>
+            </div>
+
+            <!-- 6. SMART INDUSTRY (Curved back) -->
+            <div class="domain-pill-card chamfer-card curve-pos-bottom" data-domain="industry" role="button" tabindex="0" title="Click for Track Details">
+              <div class="pill-hazard-ticks left"><span></span><span></span><span></span></div>
+              <div class="pill-card-body">
+                <span class="pill-domain-icon">🏭</span>
+                <span class="domain-pill-title">SMART INDUSTRY</span>
+              </div>
+              <div class="pill-hazard-ticks right"><span></span><span></span><span></span></div>
+              <div class="pill-hover-glow"></div>
+            </div>
+          </div>
+
         </section>
 
-        <!-- 6. HIGH-IMPACT PRIZE POOL BANNER -->
+        <!-- 5. HIGH-IMPACT PRIZE POOL BANNER -->
         <section class="prize-pool-section">
           <div class="prize-banner-frame">
-            <span class="prize-big red-cyber-highlight">BIG</span>
-            <span class="prize-main">PRIZE POOL &amp; INTERNSHIPS</span>
+            <div class="prize-bracket-bracket left"></div>
+            <div class="prize-title-wrapper">
+              <h2 class="prize-main-title">BIG PRIZE POOL &amp; INTERNSHIPS</h2>
+            </div>
+            <div class="prize-bracket-bracket right"></div>
           </div>
           <div class="prize-subtitle-tags">
             <span class="p-tag">✦ CASH AWARDS</span>
@@ -606,129 +610,110 @@
           </div>
         </section>
 
-        <!-- 7. BOTTOM DUAL CONSOLE: COORDINATORS & REGISTRATION / WEBSITE -->
+        <!-- 6. BOTTOM 3 INFORMATION CARDS -->
         <footer class="poster-footer-console">
           
-          <!-- LEFT CONSOLE: STUDENT & FACULTY COORDINATORS -->
+          <!-- CARD 1: COMMAND & COORDINATION -->
           <div class="console-box coordinators-box">
             <div class="console-header-tab">
-              <span class="tab-marker"></span>
+              <span class="tab-marker">■</span>
               <span class="tab-title">COMMAND &amp; COORDINATION</span>
             </div>
 
             <div class="coord-content-grid">
-              
-              <!-- Student Coordinators -->
-              <div class="coord-group student-coords">
-                <h3 class="coord-category-title cyan-accent">Student Coordinators</h3>
+              <!-- Student Coordinators Column -->
+              <div class="coord-group">
+                <h3 class="coord-category-title">Student Coordinators</h3>
                 <ul class="coord-list">
-                  <li class="coord-item">
-                    <span class="coord-name">Keertana M S</span>
-                    <a href="tel:9944070580" class="coord-contact-btn" title="Call Coordinator" data-phone="9944070580">
-                      <span class="phone-num">9944070580</span>
-                      <span class="contact-icon">📞</span>
-                    </a>
-                  </li>
-                  <li class="coord-item">
-                    <span class="coord-name">Madhumitha S</span>
-                    <a href="tel:9342828394" class="coord-contact-btn" title="Call Coordinator" data-phone="9342828394">
-                      <span class="phone-num">9342828394</span>
-                      <span class="contact-icon">📞</span>
-                    </a>
-                  </li>
+                  <li class="coord-item">Keertana M S</li>
+                  <li class="coord-item">Harshita S</li>
+                  <li class="coord-item">Sanjay Kumar M</li>
+                  <li class="coord-item">Balaji S</li>
                 </ul>
               </div>
 
-              <!-- Faculty Coordinators -->
-              <div class="coord-group faculty-coords">
-                <h3 class="coord-category-title cyan-accent">Faculty Coordinators</h3>
-                <ul class="faculty-list">
-                  <li class="faculty-name">Dr. Malathy S</li>
-                  <li class="faculty-name">Dr. Muthu Lakshmi S</li>
-                  <li class="faculty-name">Dr. Kalaivanan K</li>
+              <!-- Vertical Divider Line -->
+              <div class="coord-vertical-divider"></div>
+
+              <!-- Faculty Coordinators Column -->
+              <div class="coord-group">
+                <h3 class="coord-category-title">Faculty Coordinators</h3>
+                <ul class="coord-list">
+                  <li class="coord-item">Dr. Malathy S</li>
+                  <li class="coord-item">Dr. Deepalakshmi S</li>
+                  <li class="coord-item">Dr. Nithyakalyani K</li>
+                  <li class="coord-item">Dr. B. Abirami</li>
                 </ul>
               </div>
+            </div>
 
+            <div class="card-corner-hazard">
+              <span></span><span></span><span></span>
             </div>
           </div>
 
-          <!-- RIGHT CONSOLE: REGISTRATION FEE, QR CODE & WEBSITE LINK BUTTON -->
-          <div class="console-box registration-box">
+          <!-- CARD 2: REGISTRATION & ACCESS PORTAL -->
+          <div class="console-box registration-portal-box">
             <div class="console-header-tab">
-              <span class="tab-marker"></span>
+              <span class="tab-marker">■</span>
               <span class="tab-title">REGISTRATION &amp; ACCESS PORTAL</span>
             </div>
 
-            <div class="reg-content-flex">
+            <div class="reg-portal-inner">
+              <div class="reg-fee-label">Registration Fee (per person)</div>
               
-              <!-- Pricing & Inclusions Block -->
-              <div class="fee-info-block">
-                <h3 class="fee-category-title cyan-accent">Registration Fee (per person)</h3>
-                
-                <div class="fee-table">
-                  <div class="fee-row">
-                    <span class="fee-tier">IEEE Members:</span>
-                    <span class="fee-price white-bold">Rs. 500/-</span>
-                  </div>
-                  <div class="fee-row">
-                    <span class="fee-tier">Non-IEEE Members:</span>
-                    <span class="fee-price white-bold">Rs. 600/-</span>
-                  </div>
-                </div>
-
-                <div class="includes-strip">
-                  <span class="includes-label cyan-accent">Includes</span>
-                  <span class="includes-val">Food, Refreshments</span>
-                </div>
-
-                <p class="accommodation-note">
-                  For accommodation details, please contact us.
-                </p>
-              </div>
-
-              <!-- QR Code & Website Link Block -->
-              <div class="qr-website-block">
-                
-                <!-- Bouncing Neon Indicator Arrow -->
-                <div class="website-callout-anim">
-                  <span class="callout-text">CHECKOUT OUR WEBSITE!!</span>
-                  <svg class="curved-arrow-svg" viewBox="0 0 80 50" fill="none">
-                    <path d="M10,10 Q50,5 65,35" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="4 3" fill="none"/>
-                    <polygon points="65,35 72,25 57,28" fill="#ffffff"/>
+              <!-- High-Tech Chamfered Fee Badge with Circuit Traces -->
+              <div class="fee-badge-container">
+                <div class="circuit-lead-trace left">
+                  <svg viewBox="0 0 60 16" class="circuit-lead-svg">
+                    <path d="M0 8 L44 8 L52 14 M44 8 L50 2" stroke="#00f0ff" stroke-width="1.8" fill="none"/>
+                    <circle cx="3" cy="8" r="2.5" fill="#00f0ff"/>
                   </svg>
                 </div>
-
-                <!-- Interactive QR Code -->
-                <div class="qr-cyber-frame" id="qr-inspect-btn" title="Click to enlarge QR Code" role="button" tabindex="0">
-                  <div class="qr-inner-wrapper">
-                    <img src="qr_tight.png" alt="Official Website QR Code" class="qr-image">
-                    <div class="qr-scan-line"></div>
-                  </div>
-                  <span class="qr-zoom-tip">🔍 CLICK TO ZOOM</span>
+                <div class="reg-fee-badge" id="fee-badge-btn" role="button" tabindex="0" title="Click for Fee & Accommodation Details">
+                  <span class="fee-amount-value">₹ 300/-</span>
+                  <div class="fee-pulse-glow"></div>
                 </div>
-
-                <!-- REQUESTED FEATURE: WEBSITE LINK AS A PROMINENT BUTTON -->
-                <div class="website-button-container">
-                  <a href="https://kpriet.ac.in" target="_blank" rel="noopener noreferrer" class="btn-cyber-website" id="official-website-link">
-                    <span class="btn-cyber-glitch-border"></span>
-                    <span class="btn-cyber-core">
-                      <span class="cyber-btn-icon">🌐</span>
-                      <span class="cyber-btn-text">
-                        <span class="btn-main-label">VISIT OFFICIAL WEBSITE</span>
-                        <span class="btn-sub-label">hackiton26.kpriet.ac.in</span>
-                      </span>
-                      <span class="cyber-arrow">➔</span>
-                    </span>
-                  </a>
-                  <button id="customize-url-btn" class="url-edit-btn" title="Configure Website Destination URL">⚙ EDIT LINK</button>
+                <div class="circuit-lead-trace right">
+                  <svg viewBox="0 0 60 16" class="circuit-lead-svg">
+                    <path d="M60 8 L16 8 L8 14 M16 8 L10 2" stroke="#00f0ff" stroke-width="1.8" fill="none"/>
+                    <circle cx="57" cy="8" r="2.5" fill="#00f0ff"/>
+                  </svg>
                 </div>
-
               </div>
+            </div>
 
+            <div class="card-corner-hazard">
+              <span></span><span></span><span></span>
             </div>
           </div>
 
+          <!-- CARD 3: CHECKOUT OUR WEBSITE! / SCAN TO REGISTER -->
+          <div class="console-box website-scan-box">
+            <div class="scan-header-title">CHECKOUT OUR WEBSITE!</div>
+
+            <!-- Framed Interactive QR Code -->
+            <div class="qr-cyber-frame" id="qr-inspect-btn" title="Click to enlarge QR Code" role="button" tabindex="0">
+              <div class="qr-inner-wrapper">
+                <img src="qr_tight.png" alt="Official Website QR Code" class="qr-image">
+                <div class="qr-scan-line"></div>
+              </div>
+            </div>
+
+            <!-- SCAN TO REGISTER Interactive Button -->
+            <a href="https://kpriet.ac.in" target="_blank" rel="noopener noreferrer" class="scan-to-register-btn" id="official-website-link">
+              <span class="scan-btn-text">SCAN TO REGISTER</span>
+            </a>
+          </div>
+
         </footer>
+
+        <!-- 7. BOTTOM TICKER / TAGLINE -->
+        <div class="footer-tagline-bar">
+          <span class="tagline-arrows left">▶▶▶</span>
+          <span class="tagline-text">INNOVATE &nbsp;✕&nbsp; COLLABORATE &nbsp;✕&nbsp; BUILD WHAT'S NEXT</span>
+          <span class="tagline-arrows right">◀◀◀</span>
+        </div>
 
       </div><!-- /poster-layout-grid -->
     </div><!-- /canvas-4k-viewport -->

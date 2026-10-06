@@ -47,12 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (requestedStage === 'hackathon') {
+    const curtain = document.getElementById('initial-black-curtain');
+    if (curtain) curtain.style.display = 'none';
     screenInvitation.classList.remove('active');
     screenHackathon.classList.add('active');
     document.body.classList.remove('stage-invitation');
     document.body.classList.add('stage-hackathon');
     state.currentScreen = 'hackathon';
   } else if (requestedStage === 'glitch') {
+    const curtain = document.getElementById('initial-black-curtain');
+    if (curtain) curtain.style.display = 'none';
     screenInvitation.classList.remove('active');
     glitchStage.classList.add('active');
     state.currentScreen = 'glitch';
@@ -616,10 +620,16 @@ document.addEventListener('DOMContentLoaded', () => {
     playCyberChirp(600, 0.08);
   }
 
-  document.querySelectorAll('.domain-hud-box').forEach(box => {
+  document.querySelectorAll('.domain-pill-card, .domain-hud-box').forEach(box => {
     box.addEventListener('click', () => {
       const domainKey = box.getAttribute('data-domain');
       openDomainModal(domainKey);
+    });
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const domainKey = box.getAttribute('data-domain');
+        openDomainModal(domainKey);
+      }
     });
   });
 
@@ -718,29 +728,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // =========================================================================
-  // TOOLBAR BUTTONS: AUDIO / FULLSCREEN / REPLAY
-  // =========================================================================
-  if (audioToggleBtn) {
-    audioToggleBtn.addEventListener('click', () => {
-      state.audioEnabled = !state.audioEnabled;
-      const icon = audioToggleBtn.querySelector('.btn-icon');
-      const text = audioToggleBtn.querySelector('.btn-text');
-
-      if (state.audioEnabled) {
-        icon.textContent = '🔊';
-        text.textContent = 'AUDIO ON';
-        getAudioContext();
-        playCyberChirp(1000, 0.1);
-      } else {
-        icon.textContent = '🔇';
-        text.textContent = 'MUTED';
-      }
+  // Registration Fee Badge Click Handler
+  const feeBadgeBtn = document.getElementById('fee-badge-btn');
+  if (feeBadgeBtn) {
+    feeBadgeBtn.addEventListener('click', () => {
+      playCyberChirp(1100, 0.12);
+      openQrModal();
     });
   }
 
-  if (fullscreenBtn) {
-    fullscreenBtn.addEventListener('click', () => {
+  // =========================================================================
+  // TOOLBAR BUTTONS & MAC-STYLE CONTROLS (AUDIO / FULLSCREEN / REPLAY)
+  // =========================================================================
+  document.querySelectorAll('#audio-toggle-btn, .mac-pill-btn[id="audio-toggle-btn"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.audioEnabled = !state.audioEnabled;
+      document.querySelectorAll('#audio-toggle-btn, .mac-pill-btn[id="audio-toggle-btn"]').forEach(b => {
+        const icon = b.querySelector('.btn-icon, .pill-icon');
+        const text = b.querySelector('.btn-text, .pill-text');
+        if (state.audioEnabled) {
+          if (icon) icon.textContent = '🔊';
+          if (text) text.textContent = 'AUDIO ON';
+        } else {
+          if (icon) icon.textContent = '🔇';
+          if (text) text.textContent = 'MUTED';
+        }
+      });
+      if (state.audioEnabled) {
+        getAudioContext();
+        playCyberChirp(1000, 0.1);
+      }
+    });
+  });
+
+  document.querySelectorAll('#fullscreen-btn, .mac-pill-btn[id="fullscreen-btn"], .dot-green').forEach(btn => {
+    btn.addEventListener('click', () => {
       playCyberChirp(900, 0.08);
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().catch(err => {
@@ -750,10 +772,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.exitFullscreen().catch(err => console.warn(err));
       }
     });
-  }
+  });
 
-  if (replayBtn) {
-    replayBtn.addEventListener('click', () => {
+  document.querySelectorAll('#replay-btn, .mac-pill-btn[id="replay-btn"], .dot-red').forEach(btn => {
+    btn.addEventListener('click', () => {
       playCyberChirp(800, 0.1);
       // Reset to invitation screen
       screenHackathon.classList.remove('active');
@@ -776,6 +798,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       playRoyalChime();
+    });
+  });
+
+  const yellowDot = document.querySelector('.dot-yellow');
+  if (yellowDot) {
+    yellowDot.addEventListener('click', () => {
+      playCyberChirp(600, 0.08);
     });
   }
 
